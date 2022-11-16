@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Doctor implements User {
+public class Doctor  {
 
     public static ArrayList<Doctor> doctorDir = new ArrayList<>();
 
@@ -44,20 +44,7 @@ public class Doctor implements User {
         return this == obj;
     }
 
-    @Override
-    public void createUser() {
 
-    }
-
-    @Override
-    public void updateUser() {
-
-    }
-
-    @Override
-    public void deleteUser() {
-
-    }
 
     public String getFirstName() {
         return firstName;

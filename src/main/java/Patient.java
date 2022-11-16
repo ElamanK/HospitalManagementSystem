@@ -1,8 +1,9 @@
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
-public class Patient implements User{
-
+public class Patient  {
+    Scanner scanner = new Scanner(System.in);
     Random random=new Random();
     public static ArrayList<Patient> patientDir = new ArrayList<>();
 
@@ -46,7 +47,7 @@ public class Patient implements User{
                 +"\n"+"Patient blood group__"+this.getBloodGroup()
                 +"\n"+"Patient diagnosis__"+this.getDiagnosis()
                 +"\n"+"Patient hospitalizationDate__"+this.getHospitalizationDate()
-                +"\n"+"Patient patient ID"+this.getPatientID();
+                +"\n"+"Patient  ID__ "+this.getPatientID();
     }
 
     @Override
@@ -54,15 +55,6 @@ public class Patient implements User{
         return super.hashCode();
     }
 
-    @Override
-    public void createUser() {
-
-    }
-
-    @Override
-    public void updateUser() {
-
-    }
 
     public String getFirstName() {
         return firstName;
@@ -136,8 +128,5 @@ public class Patient implements User{
         this.patientID = patientID;
     }
 
-    @Override
-    public void deleteUser() {
 
-    }
 }

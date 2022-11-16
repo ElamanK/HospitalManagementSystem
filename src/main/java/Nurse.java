@@ -1,8 +1,18 @@
 import java.util.ArrayList;
 
-public class Nurse implements User{
+public class Nurse {
 
     public static ArrayList<Nurse> nurseDir = new ArrayList<>();
+
+    public Nurse(String firstName, String lastName, String nurseID, String phoneNumber, String gender, String age, String specialization) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.nurseID = nurseID;
+        this.phoneNumber = phoneNumber;
+        this.gender = gender;
+        this.age = age;
+        this.specialization = specialization;
+    }
 
     public String firstName;
     public String lastName;
@@ -24,7 +34,7 @@ public class Nurse implements User{
 
     @Override
     public String toString() {
-        return "Nurse first name__"+this.getFirstName()
+        return "Doctor first name__"+this.getFirstName()
                 +"\n"+"Nurse last name__"+this.getLastName()
                 +"\n"+"Nurse ID__"+this.getNurseID()
                 +"\n"+"Nurse phone number__"+this.getPhoneNumber()
@@ -33,20 +43,6 @@ public class Nurse implements User{
                 +"\n"+"Nurse specialization__"+this.getSpecialization();
     }
 
-    @Override
-    public void createUser() {
-
-    }
-
-    @Override
-    public void updateUser() {
-
-    }
-
-    @Override
-    public void deleteUser() {
-
-    }
 
     public String getFirstName() {
         return firstName;
