@@ -1,26 +1,18 @@
 import java.util.ArrayList;
 
-public class Nurse {
+public class Nurse implements NurseInterface{
 
     public static ArrayList<Nurse> nurseDir = new ArrayList<>();
 
-    public Nurse(String firstName, String lastName, String nurseID, String phoneNumber, String gender, String age, String specialization) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.nurseID = nurseID;
-        this.phoneNumber = phoneNumber;
-        this.gender = gender;
-        this.age = age;
-        this.specialization = specialization;
-    }
+    public Nurse() {}
 
-    public String firstName;
-    public String lastName;
-    public String nurseID;
-    public String phoneNumber;
-    public String gender;
-    public String age;
-    public String specialization;
+    private String firstName;
+    private String lastName;
+    private String nurseID;
+    private String phoneNumber;
+    private String gender;
+    private String age;
+    private String specialization;
 
     @Override
     public int hashCode() {
@@ -98,5 +90,26 @@ public class Nurse {
 
     public void setSpecialization(String specialization) {
         this.specialization = specialization;
+    }
+
+    @Override
+    public void createNurse(String firstName, String lastName, String nurseID, String phoneNumber, String gender, String age, String specialization) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.nurseID = nurseID;
+        this.phoneNumber = phoneNumber;
+        this.gender = gender;
+        this.age = age;
+        this.specialization = specialization;
+    }
+
+    @Override
+    public void updateNurseSpecialization(String specialization) {
+
+    }
+
+    @Override
+    public void deleteNurse(String userID) {
+
     }
 }

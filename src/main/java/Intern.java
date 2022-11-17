@@ -1,40 +1,16 @@
 import java.util.ArrayList;
 
-public class Doctor implements DoctorInterface {
+public class Intern implements InternInterface{
 
-    public static ArrayList<Doctor> doctorDir = new ArrayList<>();
+    public static ArrayList<Intern> internDir = new ArrayList<>();
 
     private String firstName;
     private String lastName;
-    private String docID;
+    private String internID;
     private String phoneNumber;
     private String gender;
     private String age;
     private String specialization;
-
-
-    @Override
-    public String toString() {
-        return "Doctor first name__"+this.getFirstName()
-                +"\n"+"Doctor last name__"+this.getLastName()
-                +"\n"+"Doctor ID__"+this.getDocID()
-                +"\n"+"Doctors phone number__"+this.getPhoneNumber()
-                +"\n"+"Doctors gender__"+this.getGender()
-                +"\n"+"Doctors age__"+this.getAge()
-                +"\n"+"Doctors specialization__"+this.getSpecialization();
-    }
-
-    @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        return this == obj;
-    }
-
-
 
     public String getFirstName() {
         return firstName;
@@ -52,12 +28,12 @@ public class Doctor implements DoctorInterface {
         this.lastName = lastName;
     }
 
-    public String getDocID() {
-        return docID;
+    public String getInternID() {
+        return internID;
     }
 
-    public void setDocID(String docID) {
-        this.docID = docID;
+    public void setInternID(String internID) {
+        this.internID = internID;
     }
 
     public String getPhoneNumber() {
@@ -92,12 +68,32 @@ public class Doctor implements DoctorInterface {
         this.specialization = specialization;
     }
 
+    @Override
+    public String toString() {
+        return "Intern first name__"+this.getFirstName()
+                +"\n"+"Intern last name__"+this.getLastName()
+                +"\n"+"Intern ID__"+this.getInternID()
+                +"\n"+"Intern phone number__"+this.getPhoneNumber()
+                +"\n"+"Intern gender__"+this.getGender()
+                +"\n"+"Intern age__"+this.getAge()
+                +"\n"+"Intern specialization__"+this.getSpecialization();
+    }
 
     @Override
-    public void createDoctor(String firstName, String lastName, String docID, String phoneNumber, String gender, String age, String specialization) {
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return this == obj;
+    }
+
+    @Override
+    public void createIntern(String firstName, String lastName, String internID, String phoneNumber, String gender, String age, String specialization) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.docID = docID;
+        this.internID = internID;
         this.phoneNumber = phoneNumber;
         this.gender = gender;
         this.age = age;
@@ -105,20 +101,17 @@ public class Doctor implements DoctorInterface {
     }
 
     @Override
-    public void updateDoctorSpecialization(String firstName, String lastName, String specialization) {
+    public void updateIntern(String firstName, String lastName, String specialization) {
         this.setFirstName(firstName);
         this.setLastName(lastName);
         this.setSpecialization(specialization);
     }
 
     @Override
-    public void deleteDoctor(String userID) {
-        for (int i=0;i<doctorDir.size();i++) {
-            if(doctorDir.get(i).getDocID().equals(userID)){
-                doctorDir.remove(i);
-                System.out.println("==============================");
-                System.out.println("===== Doctor is deleted ======");
-                System.out.println("==============================");
+    public void deleteIntern(String internID) {
+        for (int i=0;i<internDir.size();i++) {
+            if(internDir.get(i).internID.equals(internID)){
+                internDir.remove(i);
                 break;
             }
         }

@@ -1,21 +1,32 @@
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Appointment {
+public class Appointment extends AppointmentDetails {
     Random random = new Random();
     public static ArrayList<Appointment> appointments = new ArrayList<>();
 
-    String patientName;
-    String doctorName;
-    String date;
-    String time;
-    String confirmationNum = patientName+"@"+random.nextInt(2000);
+   private String patientName;
+   private String doctorName;
+   private String date;
+   private String time;
+   private String confirmationNum = "@"+random.nextInt(2000);
+
 
     public Appointment(String patientName, String doctorName, String date, String time) {
         this.patientName = patientName;
         this.doctorName = doctorName;
         this.date = date;
         this.time = time;
+    }
+    public  static boolean isAppointmentAlreadyBooked(String doctorName, String time,String appDate){
+            for (int i=0;i<Appointment.appointments.size();i++){
+                if(Appointment.appointments.get(i).getDoctorName().equals(doctorName)
+                        &&Appointment.appointments.get(i).getDate().equals(appDate)
+                        && Appointment.appointments.get(i).getTime().equals(time)){
+                    return true;
+                }
+            }
+        return false;
     }
 
     public String getPatientName() {

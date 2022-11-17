@@ -1,34 +1,24 @@
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
 
-public class Patient  {
-    Scanner scanner = new Scanner(System.in);
-    Random random=new Random();
+
+public class Patient implements PatientInterface {
+
+    Random random = new Random();
     public static ArrayList<Patient> patientDir = new ArrayList<>();
 
-    public Patient(String firstName, String lastName, String phoneNumber, String gender, String age, String bloodGroup, String diagnosis, String hospitalizationDate) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phoneNumber = phoneNumber;
-        this.gender = gender;
-        this.age = age;
-        this.bloodGroup = bloodGroup;
-        this.diagnosis = diagnosis;
-        this.hospitalizationDate = hospitalizationDate;
-        this.patientID = String.valueOf(random.nextInt(5000));
+    public Patient() {
     }
 
-    public String firstName;
-    public String lastName;
-    public String phoneNumber;
-    public String gender;
-    public String age;
-    public String bloodGroup;
-    public String diagnosis;
-    public String hospitalizationDate;
-    public String patientID;
-
+    private String firstName;
+    private String lastName;
+    private String phoneNumber;
+    private String gender;
+    private String age;
+    private String bloodGroup;
+    private String diagnosis;
+    private String hospitalizationDate;
+    private String patientID;
 
 
     @Override
@@ -38,16 +28,16 @@ public class Patient  {
 
     @Override
     public String toString() {
-        return "Patient first name__"+this.getFirstName()
-                +"\n"+"Patient last name__"+this.getLastName()
-                +"\n"+"Patient last name__"+this.getLastName()
-                +"\n"+"Patient phone number__"+this.getPhoneNumber()
-                +"\n"+"Patient gender__"+this.getGender()
-                +"\n"+"Patient age__"+this.getAge()
-                +"\n"+"Patient blood group__"+this.getBloodGroup()
-                +"\n"+"Patient diagnosis__"+this.getDiagnosis()
-                +"\n"+"Patient hospitalizationDate__"+this.getHospitalizationDate()
-                +"\n"+"Patient  ID__ "+this.getPatientID();
+        return "Patient first name__" + this.getFirstName()
+                + "\n" + "Patient last name__" + this.getLastName()
+                + "\n" + "Patient last name__" + this.getLastName()
+                + "\n" + "Patient phone number__" + this.getPhoneNumber()
+                + "\n" + "Patient gender__" + this.getGender()
+                + "\n" + "Patient age__" + this.getAge()
+                + "\n" + "Patient blood group__" + this.getBloodGroup()
+                + "\n" + "Patient diagnosis__" + this.getDiagnosis()
+                + "\n" + "Patient hospitalizationDate__" + this.getHospitalizationDate()
+                + "\n" + "Patient  ID__ " + this.getPatientID();
     }
 
     @Override
@@ -129,4 +119,34 @@ public class Patient  {
     }
 
 
+    @Override
+    public void createPatient(String firstName, String lastName, String phoneNumber, String gender, String age, String bloodGroup, String diagnosis, String hospitalizationDate) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+        this.gender = gender;
+        this.age = age;
+        this.bloodGroup = bloodGroup;
+        this.diagnosis = diagnosis;
+        this.hospitalizationDate = hospitalizationDate;
+        this.patientID = String.valueOf(random.nextInt(5000));
+    }
+
+    @Override
+    public void updatePatientDiagnose(String diagnose) {
+        this.diagnosis = diagnose;
+    }
+
+    @Override
+    public void deletePatient(String userID) {
+        for (int i = 0; i < Patient.patientDir.size(); i++) {
+            if (Patient.patientDir.get(i).getPatientID().equals(userID)) {
+                Patient.patientDir.remove(i);
+                System.out.println("==============================");
+                System.out.println("===== Patient is deleted =====");
+                System.out.println("==============================");
+                break;
+            }
+        }
+    }
 }
