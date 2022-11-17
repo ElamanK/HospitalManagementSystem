@@ -1,13 +1,32 @@
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 
 public class Patient implements PatientInterface {
-
+    Scanner scanner = new Scanner(System.in);
     Random random = new Random();
     public static ArrayList<Patient> patientDir = new ArrayList<>();
 
     public Patient() {
+    }
+
+    public final void sendMessageToPatient(){
+        System.out.println("Please enter patients email:");
+        String patientEmail = scanner.nextLine();
+        if (!patientEmail.endsWith("@gmail.com")){
+            System.out.println("Incorrect email, please use --@gmail.com");
+            sendMessageToPatient();
+        }
+        System.out.println("Please type your message here and click enter to send");
+        String message = scanner.next();
+        if(!message.isEmpty()){
+            System.out.println("Your message sent");
+        }else{
+            System.out.println("Message field can not be empty");
+            System.out.println("Please try again");
+        }
+
     }
 
     private String firstName;

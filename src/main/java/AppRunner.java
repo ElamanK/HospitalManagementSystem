@@ -24,20 +24,21 @@ public class AppRunner {
         System.out.println("Please choose on of the following options");
         System.out.println("1 - For new patient");
         System.out.println("2 - To update patient diagnosis");
-        System.out.println("3 - To delete patient info with patient id");
-        System.out.println("4 - To print all patients info");
-        System.out.println("5 - For new Doctor");
-        System.out.println("6 - To update Doctor specialization with doctor id");
-        System.out.println("7 - To search the Doctor with doctor id and print all other doctor information");
-        System.out.println("8 - To delete doctor info with doctor id");
-        System.out.println("9 - To make appointment with doctor");
-        System.out.println("10 - To view all scheduled appointments");
-        System.out.println("11 - To cancel appointment");
-        System.out.println("12 - For new Nurse");
-        System.out.println("13 - To search the Nurse with nurse id and print all other nurse information");
-        System.out.println("14 - For new Intern");
-        System.out.println("15 - To update Intern specialization");
-        System.out.println("16 - To search for Intern with intern id and print all other intern information");
+        System.out.println("3 - To send message to patient");
+        System.out.println("4 - To delete patient info with patient id");
+        System.out.println("5 - To print all patients info");
+        System.out.println("6 - For new Doctor");
+        System.out.println("7 - To update Doctor specialization with doctor id");
+        System.out.println("8 - To search the Doctor with doctor id and print all other doctor information");
+        System.out.println("9 - To delete doctor info with doctor id");
+        System.out.println("10 - To make appointment with doctor");
+        System.out.println("11 - To view all scheduled appointments");
+        System.out.println("12 - To cancel appointment");
+        System.out.println("13 - For new Nurse");
+        System.out.println("14 - To search the Nurse with nurse id and print all other nurse information");
+        System.out.println("15 - For new Intern");
+        System.out.println("16 - To update Intern specialization");
+        System.out.println("17 - To search for Intern with intern id and print all other intern information");
         System.out.println("0 - To exit");
     }
 
@@ -106,6 +107,10 @@ public class AppRunner {
                 continueOperation();
                 break;
             case "3":
+                patient.sendMessageToPatient();
+                continueOperation();
+                break;
+            case "4":
                 if (isPatientExist()){
                     System.out.println("Please enter patients id:");
                     String patientToDelete = scanner.nextLine();
@@ -115,7 +120,7 @@ public class AppRunner {
                 }
                 continueOperation();
                 break;
-            case "4":
+            case "5":
                 System.out.println("-- All patients information --");
                 if (isPatientExist()){
                     for (int i = 0; i < Patient.patientDir.size(); i++) {
@@ -128,7 +133,7 @@ public class AppRunner {
                 }
                 continueOperation();
                 break;
-            case "5":
+            case "6":
                 System.out.println("Please enter firstName:");
                 String docFirstName = scanner.nextLine();
                 System.out.println("Please enter lastName:");
@@ -151,7 +156,7 @@ public class AppRunner {
                 System.out.println("==============================");
                 continueOperation();
                 break;
-            case "6":
+            case "7":
                 if (isDoctorExist()){
                     System.out.println("Please enter doctor id:");
                     String doctorID = scanner.nextLine();
@@ -168,7 +173,7 @@ public class AppRunner {
                 }
                 continueOperation();
                 break;
-            case "7":
+            case "8":
                 if (isDoctorExist()){
                     System.out.println("Please enter doctor id:");
                     String doctorIDToSearch = scanner.nextLine();
@@ -186,7 +191,7 @@ public class AppRunner {
                 }
                 continueOperation();
                 break;
-            case "8":
+            case "9":
                 if(isDoctorExist()){
                     System.out.println("To delete doctor information please enter docID:");
                     String doctorToDelete = scanner.nextLine();
@@ -196,7 +201,7 @@ public class AppRunner {
                 }
                 continueOperation();
                 break;
-            case "9":
+            case "10":
                 if (isDoctorExist()){
                     System.out.println("Please enter doctors full name to make an appointment");
                     String docName = scanner.nextLine();
@@ -225,7 +230,7 @@ public class AppRunner {
                 }
                 continueOperation();
                 break;
-            case "10":
+            case "11":
                 System.out.println("All scheduled appointments");
                 if (isAppointmentExist()){
                     for (int i = 0; i < Appointment.appointments.size(); i++) {
@@ -239,7 +244,7 @@ public class AppRunner {
 
                 continueOperation();
                 break;
-            case "11":
+            case "12":
                 if (isAppointmentExist()){
                     System.out.println("To cancel appointment please enter appointment confirmation number:");
                     String cancelNumber = scanner.nextLine();
@@ -259,7 +264,7 @@ public class AppRunner {
                 }
                 continueOperation();
                 break;
-            case "12":
+            case "13":
                 System.out.println("Please enter firstName:");
                 String nurseFirstName = scanner.nextLine();
                 System.out.println("Please enter lastName:");
@@ -282,7 +287,7 @@ public class AppRunner {
                 System.out.println("==============================");
                 continueOperation();
                 break;
-            case "13":
+            case "14":
                 if (isNurseExist()){
                     System.out.println("Please enter nurse id:");
                     String nurseId = scanner.nextLine();
@@ -299,7 +304,7 @@ public class AppRunner {
                 continueOperation();
                 break;
 
-            case "14":
+            case "15":
                 System.out.println("Please enter firstName:");
                 String internFirstName = scanner.nextLine();
                 System.out.println("Please enter lastName:");
@@ -322,7 +327,7 @@ public class AppRunner {
                 System.out.println("==============================");
                 continueOperation();
                 break;
-            case "15":
+            case "16":
                 if (isInternExist()){
                     System.out.println("Please enter intern id:");
                     String internIDtoUpdate = scanner.nextLine();
@@ -341,7 +346,7 @@ public class AppRunner {
                 }
                 continueOperation();
                 break;
-            case "16":
+            case "17":
                 if (isInternExist()){
                     System.out.println("Please enter intern id:");
                     String internToSearch = scanner.nextLine();

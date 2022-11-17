@@ -26,7 +26,7 @@ public final class Appointment extends AppointmentDetails {
         this.date = date;
         this.time = time;
     }
-    public  static boolean isAppointmentAlreadyBooked(String doctorName, String time,String appDate){
+    public static boolean isAppointmentAlreadyBooked(String doctorName, String time, String appDate){
             for (int i=0;i<Appointment.appointments.size();i++){
                 if(Appointment.appointments.get(i).getDoctorName().equals(doctorName)
                         &&Appointment.appointments.get(i).getDate().equals(appDate)
