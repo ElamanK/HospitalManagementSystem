@@ -137,7 +137,7 @@ public class AppRunner {
                 String docID = scanner.nextLine();
                 System.out.println("Please enter phoneNumber:");
                 String docPhone = scanner.nextLine();
-                System.out.println("Please patients gender:");
+                System.out.println("Please gender:");
                 String docGender = scanner.nextLine();
                 System.out.println("Please enter age:");
                 String docAge = scanner.nextLine();
@@ -212,8 +212,8 @@ public class AppRunner {
                                 System.out.println("Doctor "+docName+" is not available at "+appTime+" please try to choose different time");
                                 break;
                             }
-                            Appointment appointment = new Appointment(patientFullName,docName,appDate,appTime);
-                            Appointment.appointments.add(appointment);
+                            Appointment appointment = new Appointment();
+                            Appointment.appointments.add(appointment.makeAppointment(patientFullName,docName,appDate,appTime));
                             System.out.println("Your appointment with doctor "+docName+" scheduled successfully");
                         }else{
                             System.out.println("There is no doctor with given name, please try again");

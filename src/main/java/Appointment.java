@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Appointment extends AppointmentDetails {
+public final class Appointment extends AppointmentDetails {
     Random random = new Random();
     public static ArrayList<Appointment> appointments = new ArrayList<>();
 
@@ -11,6 +11,14 @@ public class Appointment extends AppointmentDetails {
    private String time;
    private String confirmationNum = "@"+random.nextInt(2000);
 
+    public Appointment() {
+
+    }
+
+    @Override
+    public Appointment makeAppointment(String patientName, String doctorName, String date, String time) {
+        return new Appointment(patientName,doctorName,date,time);
+    }
 
     public Appointment(String patientName, String doctorName, String date, String time) {
         this.patientName = patientName;
