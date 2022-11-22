@@ -1,33 +1,16 @@
-import java.util.ArrayList;
+package users;
+
+
+import interfaces.StaffInterface;
+import runner.AppRunner;
+
 import java.util.Random;
 import java.util.Scanner;
 
 
-public class Patient implements PatientInterface {
+public class Patient implements StaffInterface {
     Scanner scanner = new Scanner(System.in);
     Random random = new Random();
-    public static ArrayList<Patient> patientDir = new ArrayList<>();
-
-    public Patient() {
-    }
-
-    public final void sendMessageToPatient(){
-        System.out.println("Please enter patients email:");
-        String patientEmail = scanner.nextLine();
-        if (!patientEmail.endsWith("@gmail.com")){
-            System.out.println("Incorrect email, please use --@gmail.com");
-            sendMessageToPatient();
-        }
-        System.out.println("Please type your message here and click enter to send");
-        String message = scanner.next();
-        if(!message.isEmpty()){
-            System.out.println("Your message sent");
-        }else{
-            System.out.println("Message field can not be empty");
-            System.out.println("Please try again");
-        }
-
-    }
 
     private String firstName;
     private String lastName;
@@ -39,11 +22,31 @@ public class Patient implements PatientInterface {
     private String hospitalizationDate;
     private String patientID;
 
-
-    @Override
-    public boolean equals(Object obj) {
-        return this == obj;
+    public Patient() {
     }
+
+    public final void sendMessageToPatient() {
+        System.out.println("Please enter patients email:");
+        String patientEmail = scanner.nextLine();
+        if (!patientEmail.endsWith("@gmail.com")) {
+            System.out.println("Incorrect email, please use --@gmail.com");
+            sendMessageToPatient();
+        }
+        System.out.println("Please type your message here and click enter to send");
+        String message = scanner.next();
+        if (!message.isEmpty()) {
+            System.out.println("Your message sent");
+            AppRunner.continueOperation();
+        } else {
+            System.out.println("Message field can not be empty");
+            System.out.println("Please try again");
+            sendMessageToPatient();
+        }
+
+    }
+
+
+
 
     @Override
     public String toString() {
@@ -138,7 +141,7 @@ public class Patient implements PatientInterface {
     }
 
 
-    @Override
+
     public void createPatient(String firstName, String lastName, String phoneNumber, String gender, String age, String bloodGroup, String diagnosis, String hospitalizationDate) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -151,21 +154,47 @@ public class Patient implements PatientInterface {
         this.patientID = String.valueOf(random.nextInt(5000));
     }
 
-    @Override
+
     public void updatePatientDiagnose(String diagnose) {
         this.diagnosis = diagnose;
     }
 
     @Override
-    public void deletePatient(String userID) {
-        for (int i = 0; i < Patient.patientDir.size(); i++) {
-            if (Patient.patientDir.get(i).getPatientID().equals(userID)) {
-                Patient.patientDir.remove(i);
+    public void createUser(String firstName, String lastName, String docID, String phoneNumber, String gender, String age, String specialization) {
+
+    }
+
+    @Override
+    public void updateUserSpecialization(String userID) {
+        boolean flag = false;
+        for (int i = 0; i < Hospital.getPatientDir().size(); i++) {
+            if (Hospital.getPatientDir().get(i).getPatientID().equals(userID)) {
+                System.out.println("Please enter updated diagnose below:");
+                String updatedDiagnose = scanner.nextLine();
+                Hospital.getPatientDir().get(i).updatePatientDiagnose(updatedDiagnose);
+                System.out.println("Patient diagnose is updated to " + updatedDiagnose + ".");
+                break;
+            } else {
+                flag = true;
+            }
+        }
+        if (flag) {
+            System.out.println("Patient is not found with given ID, please try again");
+
+        }
+    }
+
+    @Override
+    public void deleteUser(String userID) {
+        for (int i = 0; i < Hospital.getPatientDir().size(); i++) {
+            if (Hospital.getPatientDir().get(i).getPatientID().equals(userID)) {
+                Hospital.getPatientDir().remove(i);
                 System.out.println("==============================");
                 System.out.println("===== Patient is deleted =====");
                 System.out.println("==============================");
                 break;
             }
         }
+        System.out.println("Patient is not found");
     }
 }

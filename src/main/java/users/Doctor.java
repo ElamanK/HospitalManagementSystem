@@ -1,8 +1,11 @@
-import java.util.ArrayList;
+package users;
 
-public class Doctor implements DoctorInterface {
 
-    public static ArrayList<Doctor> doctorDir = new ArrayList<>();
+import interfaces.StaffInterface;
+
+import java.util.Objects;
+
+public class Doctor implements StaffInterface {
 
     private String firstName;
     private String lastName;
@@ -15,25 +18,27 @@ public class Doctor implements DoctorInterface {
 
     @Override
     public String toString() {
-        return "Doctor first name__"+this.getFirstName()
-                +"\n"+"Doctor last name__"+this.getLastName()
-                +"\n"+"Doctor ID__"+this.getDocID()
-                +"\n"+"Doctors phone number__"+this.getPhoneNumber()
-                +"\n"+"Doctors gender__"+this.getGender()
-                +"\n"+"Doctors age__"+this.getAge()
-                +"\n"+"Doctors specialization__"+this.getSpecialization();
+        return "Doctor first name__" + this.getFirstName()
+                + "\n" + "Doctor last name__" + this.getLastName()
+                + "\n" + "Doctor ID__" + this.getDocID()
+                + "\n" + "Doctors phone number__" + this.getPhoneNumber()
+                + "\n" + "Doctors gender__" + this.getGender()
+                + "\n" + "Doctors age__" + this.getAge()
+                + "\n" + "Doctors specialization__" + this.getSpecialization();
     }
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return Integer.parseInt(docID);
     }
 
     @Override
     public boolean equals(Object obj) {
-        return this == obj;
+        if(this == obj) return true;
+        if(obj == null || obj.getClass()!= this.getClass()) return false;
+        if(!Objects.equals(this.firstName, ((Doctor) obj).firstName)) return false;
+        return false;
     }
-
 
 
     public String getFirstName() {
@@ -94,7 +99,7 @@ public class Doctor implements DoctorInterface {
 
 
     @Override
-    public void createDoctor(String firstName, String lastName, String docID, String phoneNumber, String gender, String age, String specialization) {
+    public void createUser(String firstName, String lastName, String docID, String phoneNumber, String gender, String age, String specialization) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.docID = docID;
@@ -105,17 +110,15 @@ public class Doctor implements DoctorInterface {
     }
 
     @Override
-    public void updateDoctorSpecialization(String firstName, String lastName, String specialization) {
-        this.setFirstName(firstName);
-        this.setLastName(lastName);
-        this.setSpecialization(specialization);
+    public void updateUserSpecialization(String userID) {
+
     }
 
     @Override
-    public void deleteDoctor(String userID) {
-        for (int i=0;i<doctorDir.size();i++) {
-            if(doctorDir.get(i).getDocID().equals(userID)){
-                doctorDir.remove(i);
+    public void deleteUser(String userID) {
+        for (int i = 0; i < Hospital.getDoctorDir().size(); i++) {
+            if (Hospital.getDoctorDir().get(i).getDocID().equals(userID)) {
+                Hospital.getDoctorDir().remove(i);
                 System.out.println("==============================");
                 System.out.println("===== Doctor is deleted ======");
                 System.out.println("==============================");

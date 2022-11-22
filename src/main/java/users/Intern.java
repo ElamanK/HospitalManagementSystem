@@ -1,9 +1,12 @@
-import java.util.ArrayList;
+package users;
 
-public class Intern implements InternInterface{
 
-    public static ArrayList<Intern> internDir = new ArrayList<>();
+import interfaces.StaffInterface;
 
+import java.util.Scanner;
+
+public class Intern implements StaffInterface {
+    Scanner scanner = new Scanner(System.in);
     private String firstName;
     private String lastName;
     private String internID;
@@ -90,7 +93,7 @@ public class Intern implements InternInterface{
     }
 
     @Override
-    public void createIntern(String firstName, String lastName, String internID, String phoneNumber, String gender, String age, String specialization) {
+    public void createUser(String firstName, String lastName, String internID, String phoneNumber, String gender, String age, String specialization) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.internID = internID;
@@ -101,17 +104,30 @@ public class Intern implements InternInterface{
     }
 
     @Override
-    public void updateIntern(String firstName, String lastName, String specialization) {
-        this.setFirstName(firstName);
-        this.setLastName(lastName);
-        this.setSpecialization(specialization);
+    public void updateUserSpecialization(String userID) {
+        boolean flag = false;
+        for (int i = 0; i < Hospital.getInternDir().size(); i++) {
+            if (Hospital.getInternDir().get(i).getInternID().equals(userID)) {
+                System.out.println("Please enter updated specialization below:");
+                String updatedSpecialization = scanner.nextLine();
+                Hospital.getInternDir().get(i).setSpecialization(updatedSpecialization);
+                System.out.println("Intern specialization updated to " + updatedSpecialization + ".");
+                break;
+            } else {
+                flag = true;
+            }
+        }
+        if (flag) {
+            System.out.println("Intern is not found with given ID, please try again");
+
+        }
     }
 
     @Override
-    public void deleteIntern(String internID) {
-        for (int i=0;i<internDir.size();i++) {
-            if(internDir.get(i).internID.equals(internID)){
-                internDir.remove(i);
+    public void deleteUser(String internID) {
+        for (int i = 0; i< Hospital.getInternDir().size(); i++) {
+            if(Hospital.getInternDir().get(i).internID.equals(internID)){
+                Hospital.getInternDir().remove(i);
                 break;
             }
         }

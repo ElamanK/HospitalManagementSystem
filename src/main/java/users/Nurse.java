@@ -1,10 +1,13 @@
-import java.util.ArrayList;
+package users;
 
-public class Nurse implements NurseInterface{
 
-    public static ArrayList<Nurse> nurseDir = new ArrayList<>();
+import interfaces.StaffInterface;
 
-    public Nurse() {}
+
+
+public class Nurse implements StaffInterface {
+
+
 
     private String firstName;
     private String lastName;
@@ -26,13 +29,13 @@ public class Nurse implements NurseInterface{
 
     @Override
     public String toString() {
-        return "Doctor first name__"+this.getFirstName()
-                +"\n"+"Nurse last name__"+this.getLastName()
-                +"\n"+"Nurse ID__"+this.getNurseID()
-                +"\n"+"Nurse phone number__"+this.getPhoneNumber()
-                +"\n"+"Nurse gender__"+this.getGender()
-                +"\n"+"Nurse age__"+this.getAge()
-                +"\n"+"Nurse specialization__"+this.getSpecialization();
+        return "Nurse first name__" + this.getFirstName()
+                + "\n" + "Nurse last name__" + this.getLastName()
+                + "\n" + "Nurse ID__" + this.getNurseID()
+                + "\n" + "Nurse phone number__" + this.getPhoneNumber()
+                + "\n" + "Nurse gender__" + this.getGender()
+                + "\n" + "Nurse age__" + this.getAge()
+                + "\n" + "Nurse specialization__" + this.getSpecialization();
     }
 
 
@@ -93,7 +96,7 @@ public class Nurse implements NurseInterface{
     }
 
     @Override
-    public void createNurse(String firstName, String lastName, String nurseID, String phoneNumber, String gender, String age, String specialization) {
+    public void createUser(String firstName, String lastName, String nurseID, String phoneNumber, String gender, String age, String specialization) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.nurseID = nurseID;
@@ -104,12 +107,12 @@ public class Nurse implements NurseInterface{
     }
 
     @Override
-    public void updateNurseSpecialization(String specialization) {
+    public void updateUserSpecialization(String userID) {
 
     }
 
     @Override
-    public void deleteNurse(String userID) {
+    public void deleteUser(String userID) {
 
     }
 }
