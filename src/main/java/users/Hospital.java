@@ -1,10 +1,6 @@
 package users;
-
 import appointments.Appointment;
-
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 
 public class Hospital {
@@ -12,18 +8,8 @@ public class Hospital {
     private static ArrayList<Patient> patientDir = new ArrayList<>();
     private static ArrayList<Appointment> appointments = new ArrayList<>();
     private static ArrayList<Intern> internDir = new ArrayList<>();
-    public static ArrayList<Nurse> nurseDir = new ArrayList<>();
-    private static List<Map<String,Object>> appointmentListOfMap = new ArrayList<>();
+    private static ArrayList<Nurse> nurseDir = new ArrayList<>();
 
-    public static List<Map<String, Object>> getAppointmentListOfMap() {
-        return appointmentListOfMap;
-    }
-
-
-
-    public static void setAppointmentListOfMap(List<Map<String, Object>> appointmentListOfMap) {
-        Hospital.appointmentListOfMap = appointmentListOfMap;
-    }
 
     public static Doctor getDoctorByName(String fullName){
         for (Doctor doctor : doctorDir) {

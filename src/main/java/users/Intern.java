@@ -15,61 +15,55 @@ public class Intern implements StaffInterface {
     private String age;
     private String specialization;
 
+
+
+
+
+
+
     public String getFirstName() {
         return firstName;
     }
-
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-
     public String getLastName() {
         return lastName;
     }
-
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
     public String getInternID() {
         return internID;
     }
-
     public void setInternID(String internID) {
         this.internID = internID;
     }
-
     public String getPhoneNumber() {
         return phoneNumber;
     }
-
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-
     public String getGender() {
         return gender;
     }
-
     public void setGender(String gender) {
         this.gender = gender;
     }
-
     public String getAge() {
         return age;
     }
-
     public void setAge(String age) {
         this.age = age;
     }
-
     public String getSpecialization() {
         return specialization;
     }
-
     public void setSpecialization(String specialization) {
         this.specialization = specialization;
     }
+
 
     @Override
     public String toString() {
@@ -84,14 +78,12 @@ public class Intern implements StaffInterface {
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return Integer.parseInt(internID);
     }
-
     @Override
     public boolean equals(Object obj) {
         return this == obj;
     }
-
     @Override
     public void createUser(String firstName, String lastName, String internID, String phoneNumber, String gender, String age, String specialization) {
         this.firstName = firstName;
@@ -102,7 +94,6 @@ public class Intern implements StaffInterface {
         this.age = age;
         this.specialization = specialization;
     }
-
     @Override
     public void updateUserSpecialization(String userID) {
         boolean flag = false;

@@ -52,7 +52,6 @@ public class Patient implements StaffInterface {
     public String toString() {
         return "Patient first name__" + this.getFirstName()
                 + "\n" + "Patient last name__" + this.getLastName()
-                + "\n" + "Patient last name__" + this.getLastName()
                 + "\n" + "Patient phone number__" + this.getPhoneNumber()
                 + "\n" + "Patient gender__" + this.getGender()
                 + "\n" + "Patient age__" + this.getAge()
