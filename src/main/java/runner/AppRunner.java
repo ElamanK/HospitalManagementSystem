@@ -1,6 +1,11 @@
 package runner;
-
 import appointments.AppointmentUtils;
+import exceptions.BillNotFoundException;
+import exceptions.InvalidUserIdException;
+import exceptions.NegativeAgeException;
+import exceptions.UserNotFoundException;
+import prescription.Prescription;
+import reception.Receptionist;
 import users.*;
 
 import java.util.*;
@@ -27,6 +32,8 @@ public class AppRunner {
         System.out.println("3 - For appointments");
         System.out.println("4 - For nurse");
         System.out.println("5 - For intern");
+        System.out.println("6 - For prescription");
+        System.out.println("7 - For reception");
         System.out.println("0 - To exit");
     }
 
@@ -62,12 +69,86 @@ public class AppRunner {
                 makeChoiceForIntern(scanner.next());
                 continueOperation();
                 break;
+            case "6":
+                printPrescriptions();
+                makeChoiceForPrescription(scanner.next());
+                continueOperation();
+                break;
+            case "7":
+                printReceptionOptions();
+                makeChoiceForReception(scanner.next());
+                continueOperation();
+                break;
             default:
                 printOptions();
 
         }
     }
+    private static void printReceptionOptions(){
+        System.out.println("1 - To generate bill");
+        System.out.println("2 - To view patient bills");
+    }
+    private static void makeChoiceForReception(String choice){
+        Receptionist receptionist = new Receptionist();
+        switch (choice){
+            case "1":
+                try {
+                    receptionist.generateBill();
+                } catch (UserNotFoundException e) {
+                    System.out.println(e.getMessage());
+                }
+                break;
+            case "2":
+                    try {
+                        receptionist.viewPatientBill();
+                    } catch (UserNotFoundException | BillNotFoundException e) {
+                        System.out.println(e.getMessage());
+                    }
+                break;
+            default:
+                System.out.println("Incorrect option, please try again");
+                break;
 
+        }
+    }
+    private static void printPrescriptions() {
+        System.out.println("1 - For new prescription");
+        System.out.println("2 - View all patients prescriptions");
+    }
+    private static void makeChoiceForPrescription(String choice) {
+        Scanner scanner = new Scanner(System.in);
+        switch (choice) {
+            case "1":
+                try {
+                    Doctor.prescribeMedicine();
+                } catch (UserNotFoundException e) {
+                    System.out.println(e);
+                }
+                break;
+            case "2":
+                System.out.println("Please enter patient name");
+                String patName = scanner.nextLine();
+                if (patName.isEmpty()) {
+                    System.out.println("Patient name cannot be blank");
+                    break;
+                }
+                boolean ifPatientDoesNotExist = true;
+                for (Prescription p : Hospital.getPrescriptions()) {
+                    if ((p.getPatient().getFirstName()+" "+p.getPatient().getLastName()).equalsIgnoreCase(patName)) {
+                        System.out.println("-------------------------");
+                        System.out.println(p);
+                        System.out.println("-------------------------");
+                        ifPatientDoesNotExist = false;
+                    }
+                }
+                if (ifPatientDoesNotExist) {
+                    System.out.println("Patient is not found, please try again");
+                }
+                break;
+            default:
+
+        }
+    }
     private static void printInternOptions() {
         System.out.println("1 - For new intern");
         System.out.println("2 - To update intern specialization with intern id");
@@ -75,7 +156,6 @@ public class AppRunner {
         System.out.println("4 - To delete intern info with intern id");
         System.out.println("5 - To main page");
     }
-
     private static void makeChoiceForIntern(String choice) {
         Intern intern = new Intern();
         Scanner scanner = new Scanner(System.in);
@@ -106,7 +186,7 @@ public class AppRunner {
                 if (isInternExist()) {
                     System.out.println("Please enter intern id:");
                     String internIDtoUpdate = scanner.nextLine();
-                    intern.updateUserSpecialization(internIDtoUpdate);
+                    intern.updateUser(internIDtoUpdate);
                 } else {
                     System.out.println("There is no intern info in database");
                 }
@@ -117,7 +197,7 @@ public class AppRunner {
                     String internToSearch = scanner.nextLine();
                     boolean ifInternNotFound = true;
                     for (int i = 0; i < Hospital.getInternDir().size(); i++) {
-                        if (Hospital.getInternDir().get(i).getInternID().equals(internToSearch)) {
+                        if (Hospital.getInternDir().get(i).getPersonID().equals(internToSearch)) {
                             System.out.println("-----------------------------------");
                             System.out.println(Hospital.getInternDir().get(i).toString());
                             System.out.println("-----------------------------------");
@@ -149,7 +229,6 @@ public class AppRunner {
                 break;
         }
     }
-
     private static void printNurseOptions() {
         System.out.println("1 - For new nurse");
         System.out.println("2 - To update nurse specialization with nurse id");
@@ -157,7 +236,6 @@ public class AppRunner {
         System.out.println("4 - To delete nurse info with nurse id");
         System.out.println("5 - To main page");
     }
-
     private static void makeChoiceForNurse(String option) {
         Nurse nurse = new Nurse();
         Scanner scanner = new Scanner(System.in);
@@ -189,7 +267,7 @@ public class AppRunner {
                     System.out.println("Please enter nurse id:");
                     String nurseToUpdate = scanner.nextLine();
                     for (int i = 0; i < Hospital.getNurseDir().size(); i++) {
-                        if (Hospital.getNurseDir().get(i).getNurseID().equals(nurseToUpdate)) {
+                        if (Hospital.getNurseDir().get(i).getPersonID().equals(nurseToUpdate)) {
                             System.out.println("Please enter updated specialization below:");
                             String updatedSpecialization = scanner.nextLine();
                             Hospital.getNurseDir().get(i).setSpecialization(updatedSpecialization);
@@ -205,7 +283,7 @@ public class AppRunner {
                     System.out.println("Please enter nurse id:");
                     String nurseId = scanner.nextLine();
                     for (int i = 0; i < Hospital.getNurseDir().size(); i++) {
-                        if (Hospital.getNurseDir().get(i).getNurseID().equals(nurseId)) {
+                        if (Hospital.getNurseDir().get(i).getPersonID().equals(nurseId)) {
                             System.out.println("-----------------------------------");
                             System.out.println(Hospital.getNurseDir().get(i).toString());
                             System.out.println("-----------------------------------");
@@ -233,14 +311,12 @@ public class AppRunner {
                 break;
         }
     }
-
     private static void printAppointmentOptions() {
         System.out.println("1 - To make appointment with doctor");
         System.out.println("2 - To view all scheduled appointments");
         System.out.println("3 - To cancel appointment");
         System.out.println("4 - To main page");
     }
-
     private static void makeChoiceForAppointment(String option) {
         Scanner scanner = new Scanner(System.in);
         switch (option) {
@@ -248,20 +324,24 @@ public class AppRunner {
                 if (isDoctorExist() && isPatientExist()) {
                     System.out.println("To make an appointment please choose doctor from the list");
                     for (int i = 0; i < Hospital.getDoctorDir().size(); i++) {
-                        System.out.println(i+1+")"+Hospital.getDoctorDir().get(i).getFirstName()+" "+Hospital.getDoctorDir().get(i).getLastName());
+                        System.out.println(i + 1 + ")" + Hospital.getDoctorDir().get(i).getFirstName() + " " + Hospital.getDoctorDir().get(i).getLastName());
                     }
 
                     String docNumberFromList = scanner.nextLine();
 
-                    if (Integer.parseInt(docNumberFromList)>(Hospital.getDoctorDir().size())){
+                    if (Integer.parseInt(docNumberFromList) > (Hospital.getDoctorDir().size())) {
                         System.out.println("Invalid number, please choose doctor by number");
                         break;
                     }
-                    String docFullName = Hospital.getDoctorDir().get(Integer.parseInt(docNumberFromList)-1).getFirstName()
-                            +" "+Hospital.getDoctorDir().get(Integer.parseInt(docNumberFromList)-1).getLastName();
+                    String docFullName = Hospital.getDoctorDir().get(Integer.parseInt(docNumberFromList) - 1).getFirstName()
+                            + " " + Hospital.getDoctorDir().get(Integer.parseInt(docNumberFromList) - 1).getLastName();
 
                     System.out.println("Please enter patient full name");
                     String patientFullName = scanner.nextLine();
+                    if (Hospital.getPatientByName(patientFullName) == null) {
+                        System.out.println("Patient is not found, please try again");
+                        break;
+                    }
                     System.out.println("Enter date");
                     String appDate = scanner.nextLine();
                     System.out.println("Enter time");
@@ -270,7 +350,7 @@ public class AppRunner {
                             Hospital.getPatientByName(patientFullName), appDate, appTime);
                     System.out.println("Your appointment with doctor " + docFullName + " scheduled successfully");
                 } else {
-                    System.out.println("There is no doctor or patient in database, please try again");
+                    System.out.println("Please create doctor/patient first and try again");
                 }
                 break;
             case "2":
@@ -308,7 +388,6 @@ public class AppRunner {
                 break;
         }
     }
-
     private static void printDoctorOptions() {
         System.out.println("1 - For new doctor");
         System.out.println("2 - To update doctor specialization with doctor id");
@@ -316,7 +395,6 @@ public class AppRunner {
         System.out.println("4 - To delete doctor info with doctor id");
         System.out.println("5 - To main page");
     }
-
     private static void makeChoiceForDoctor(String option) {
         Doctor doctor = new Doctor();
         Scanner scanner = new Scanner(System.in);
@@ -324,8 +402,14 @@ public class AppRunner {
             case "1":
                 System.out.println("Please enter doctors firstName:");
                 String docFirstName = scanner.nextLine();
+                if (docFirstName.isEmpty()) {
+                    System.out.println("first name can't be empty, try again");
+                }
                 System.out.println("Please enter doctors lastName:");
                 String docLastName = scanner.nextLine();
+                if (docLastName.isEmpty()) {
+                    System.out.println("last name can't be empty, try again");
+                }
                 System.out.println("Please enter doctors ID:");
                 String docID = scanner.nextLine();
                 System.out.println("Please enter doctor phoneNumber:");
@@ -334,6 +418,12 @@ public class AppRunner {
                 String docGender = scanner.nextLine();
                 System.out.println("Please enter doctors age:");
                 String docAge = scanner.nextLine();
+                try {
+                    Person.validateAgeOfPerson(docAge);
+                } catch (NegativeAgeException e) {
+                    System.out.println(e.getMessage());
+                    break;
+                }
                 System.out.println("Please enter doctors specialization:");
                 String specialization = scanner.nextLine();
                 doctor.createUser(docFirstName, docLastName, docID, docPhone, docGender, docAge,
@@ -347,13 +437,10 @@ public class AppRunner {
                 if (isDoctorExist()) {
                     System.out.println("Please enter doctor id:");
                     String doctorID = scanner.nextLine();
-                    for (int i = 0; i < Hospital.getDoctorDir().size(); i++) {
-                        if (Hospital.getDoctorDir().get(i).getDocID().equals(doctorID)) {
-                            System.out.println("Please enter updated specialization below:");
-                            String updatedSpecialization = scanner.nextLine();
-                            Hospital.getDoctorDir().get(i).setSpecialization(updatedSpecialization);
-                            System.out.println("Doctors specialization is updated to " + updatedSpecialization + ".");
-                        }
+                    try {
+                        doctor.updateUser(doctorID);
+                    } catch (UserNotFoundException e) {
+                        System.out.println(e.getMessage());
                     }
                 } else {
                     System.out.println("There is no doctor in database, please try again");
@@ -364,7 +451,7 @@ public class AppRunner {
                     System.out.println("Please enter doctor id:");
                     String doctorIDToSearch = scanner.nextLine();
                     for (int i = 0; i < Hospital.getDoctorDir().size(); i++) {
-                        if (Hospital.getDoctorDir().get(i).getDocID().equals(doctorIDToSearch)) {
+                        if (Hospital.getDoctorDir().get(i).getPersonID().equals(doctorIDToSearch)) {
                             System.out.println("-----------------------------------");
                             System.out.println(Hospital.getDoctorDir().get(i).toString());
                             System.out.println("-----------------------------------");
@@ -380,7 +467,11 @@ public class AppRunner {
                 if (isDoctorExist()) {
                     System.out.println("To delete doctor information please enter docID:");
                     String doctorToDelete = scanner.nextLine();
-                    doctor.deleteUser(doctorToDelete);
+                    try {
+                        doctor.deleteUser(doctorToDelete);
+                    } catch (InvalidUserIdException e) {
+                        System.out.println(e.getMessage());
+                    }
                 } else {
                     System.out.println("There is no doctor in database, please create doctor ");
                 }
@@ -394,7 +485,6 @@ public class AppRunner {
                 break;
         }
     }
-
     private static void printPatientOptions() {
         System.out.println("Please choose on of the following options");
         System.out.println("1 - For new patient");
@@ -404,7 +494,6 @@ public class AppRunner {
         System.out.println("5 - To print all patients info");
         System.out.println("6 - To main page");
     }
-
     private static void makeAChoiceForPatient(String option) {
         Patient patient = new Patient();
         Scanner scanner = new Scanner(System.in);
@@ -412,14 +501,28 @@ public class AppRunner {
             case "1":
                 System.out.println("Please enter patients firstName:");
                 String firstName = scanner.nextLine();
+                if (firstName.isEmpty()) {
+                    System.out.println("first name can't be blank, please try again");
+                    break;
+                }
                 System.out.println("Please enter patients lastName:");
                 String lastName = scanner.nextLine();
+                if (lastName.isEmpty()) {
+                    System.out.println("last name can't be blank, please try again");
+                    break;
+                }
                 System.out.println("Please enter patients phone number:");
                 String phoneNumber = scanner.nextLine();
                 System.out.println("Please enter patients gender:");
                 String gender = scanner.nextLine();
                 System.out.println("Please patients age:");
                 String age = scanner.nextLine();
+                try {
+                    Person.validateAgeOfPerson(age);
+                } catch (NegativeAgeException e) {
+                    System.out.println(e.getMessage());
+                    break;
+                }
                 System.out.println("Please enter patients bloodGroup:");
                 String bloodGroup = scanner.nextLine();
                 System.out.println("Please enter patients diagnosis:");
@@ -438,7 +541,7 @@ public class AppRunner {
                 if (isPatientExist()) {
                     System.out.println("Please enter patients id:");
                     String patientID = scanner.nextLine();
-                    patient.updateUserSpecialization(patientID);
+                    patient.updateUser(patientID);
                 } else {
                     System.out.println("There is no patient in database, please create patient");
                 }
@@ -501,37 +604,22 @@ public class AppRunner {
                 break;
         }
     }
-
     public static boolean isDoctorExist() {
         return !Hospital.getDoctorDir().isEmpty();
     }
-
     public static boolean isPatientExist() {
         return !Hospital.getPatientDir().isEmpty();
     }
-
     public static boolean isNurseExist() {
         return !Hospital.getNurseDir().isEmpty();
     }
-
     public static boolean isInternExist() {
         return !Hospital.getInternDir().isEmpty();
     }
-
     public static boolean isAppointmentExist() {
         return !Hospital.getAppointments().isEmpty();
     }
-
     public static boolean isAppointmentExist1() {
         return !Hospital.getAppointments().isEmpty();
     }
 }
-/*
-1) Add more structure to appRunner
-    1) for patient
-    2) for doctor
-    3) for nurse
-2) Let user choose from list of Doctors
-    while scheduling appointment
-3) Add 5 interfaces
- */

@@ -1,16 +1,15 @@
 package appointments;
+import utils.MyRandom;
 import users.Doctor;
 import users.Patient;
-import java.util.Random;
+
 
 public final class Appointment{
-    Random random = new Random();
-
     private Patient patient;
     private Doctor doctor;
     private String date;
     private String time;
-    private final String confirmationNum = "CN" + random.nextInt(2000);
+    private final String confirmationNum = "CN" + MyRandom.getRandomNumberAsString();
 
     public Appointment(Doctor doctor, Patient patient, String date, String time) {
         this.doctor = doctor;
@@ -18,8 +17,6 @@ public final class Appointment{
         this.date = date;
         this.time = time;
     }
-
-
 
     public Patient getPatient() {
         return patient;

@@ -1,5 +1,9 @@
 package users;
 import appointments.Appointment;
+import bills.Bill;
+import prescription.Prescription;
+
+
 import java.util.ArrayList;
 
 
@@ -9,7 +13,24 @@ public class Hospital {
     private static ArrayList<Appointment> appointments = new ArrayList<>();
     private static ArrayList<Intern> internDir = new ArrayList<>();
     private static ArrayList<Nurse> nurseDir = new ArrayList<>();
+    private static ArrayList<Prescription> prescriptions = new ArrayList<>();
+    private static ArrayList<Bill> bills = new ArrayList<>();
 
+    public static ArrayList<Bill> getBills() {
+        return bills;
+    }
+
+    public static void setBills(ArrayList<Bill> bills) {
+        Hospital.bills = bills;
+    }
+
+    public static ArrayList<Prescription> getPrescriptions() {
+        return prescriptions;
+    }
+
+    public static void setPrescriptions(ArrayList<Prescription> prescriptions) {
+        Hospital.prescriptions = prescriptions;
+    }
 
     public static Doctor getDoctorByName(String fullName){
         for (Doctor doctor : doctorDir) {

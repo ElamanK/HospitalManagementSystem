@@ -1,16 +1,12 @@
 package users;
-
-
-import interfaces.StaffInterface;
+import staff.IStaff;
 import runner.AppRunner;
-
-import java.util.Random;
+import utils.MyRandom;
 import java.util.Scanner;
 
 
-public class Patient implements StaffInterface {
+public class Patient implements IStaff {
     Scanner scanner = new Scanner(System.in);
-    Random random = new Random();
 
     private String firstName;
     private String lastName;
@@ -46,8 +42,6 @@ public class Patient implements StaffInterface {
     }
 
 
-
-
     @Override
     public String toString() {
         return "Patient first name__" + this.getFirstName()
@@ -63,7 +57,7 @@ public class Patient implements StaffInterface {
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return Integer.parseInt(getPatientID());
     }
 
 
@@ -150,7 +144,7 @@ public class Patient implements StaffInterface {
         this.bloodGroup = bloodGroup;
         this.diagnosis = diagnosis;
         this.hospitalizationDate = hospitalizationDate;
-        this.patientID = String.valueOf(random.nextInt(5000));
+        this.patientID = MyRandom.getRandomNumberAsString();
     }
 
 
@@ -164,7 +158,7 @@ public class Patient implements StaffInterface {
     }
 
     @Override
-    public void updateUserSpecialization(String userID) {
+    public void updateUser(String userID) {
         boolean flag = false;
         for (int i = 0; i < Hospital.getPatientDir().size(); i++) {
             if (Hospital.getPatientDir().get(i).getPatientID().equals(userID)) {
@@ -196,4 +190,5 @@ public class Patient implements StaffInterface {
         }
         System.out.println("Patient is not found");
     }
+
 }
