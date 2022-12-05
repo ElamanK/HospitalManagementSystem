@@ -1,2 +1,2 @@
 # HospitalManagementSystem
-Hello, welcome to my simple Hospital managment application where you can create, update and delete different types of users.
+Hello, welcome to my simple Hospital management application where you can create, update and delete different types of users.
