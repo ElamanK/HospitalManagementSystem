@@ -1,12 +1,17 @@
 package com.hospital_management.users;
+import com.hospital_management.exceptions.UserNotFoundException;
 import com.hospital_management.staff.IStaff;
 import com.hospital_management.utils.MyRandom;
 import com.hospital_management.runner.AppRunner;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 
 import java.util.Scanner;
 
 
 public class Patient implements IStaff {
+    private static final Logger LOGGER = LogManager.getLogger(Patient.class);
     Scanner scanner = new Scanner(System.in);
 
     private String firstName;
@@ -23,20 +28,20 @@ public class Patient implements IStaff {
     }
 
     public final void sendMessageToPatient() {
-        System.out.println("Please enter patients email:");
+        LOGGER.info("Please enter patients email:");
         String patientEmail = scanner.nextLine();
         if (!patientEmail.endsWith("@gmail.com")) {
-            System.out.println("Incorrect email, please use --@gmail.com");
+            LOGGER.info("Incorrect email, please use --@gmail.com");
             sendMessageToPatient();
         }
-        System.out.println("Please type your message here and click enter to send");
+        LOGGER.info("Please type your message here and click enter to send");
         String message = scanner.next();
         if (!message.isEmpty()) {
-            System.out.println("Your message sent");
+            LOGGER.info("Your message sent");
             AppRunner.continueOperation();
         } else {
-            System.out.println("Message field can not be empty");
-            System.out.println("Please try again");
+            LOGGER.info("Message field can not be empty");
+            LOGGER.info("Please try again");
             sendMessageToPatient();
         }
 
@@ -163,33 +168,33 @@ public class Patient implements IStaff {
         boolean flag = false;
         for (int i = 0; i < Hospital.getPatientDir().size(); i++) {
             if (Hospital.getPatientDir().get(i).getPatientID().equals(userID)) {
-                System.out.println("Please enter updated diagnose below:");
+                LOGGER.info("Please enter updated diagnose below:");
                 String updatedDiagnose = scanner.nextLine();
                 Hospital.getPatientDir().get(i).updatePatientDiagnose(updatedDiagnose);
-                System.out.println("Patient diagnose is updated to " + updatedDiagnose + ".");
+                LOGGER.info("Patient diagnose is updated to " + updatedDiagnose + ".");
                 break;
             } else {
                 flag = true;
             }
         }
         if (flag) {
-            System.out.println("Patient is not found with given ID, please try again");
+            LOGGER.info("Patient is not found with given ID, please try again");
 
         }
     }
 
     @Override
-    public void deleteUser(String userID) {
+    public void deleteUser(String userID) throws UserNotFoundException {
         for (int i = 0; i < Hospital.getPatientDir().size(); i++) {
             if (Hospital.getPatientDir().get(i).getPatientID().equals(userID)) {
                 Hospital.getPatientDir().remove(i);
-//                System.out.println("==============================");
-//                System.out.println("===== Patient is deleted =====");
-//                System.out.println("==============================");
                 break;
             }
         }
-        System.out.println("Patient is not found");
+        throw new UserNotFoundException("Patient not found");
     }
+
+    public void selectProvider(Patient patient, Doctor doctor){
+            Hospital.getHealthProviders().put(patient,doctor);}
 
 }

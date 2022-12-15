@@ -1,10 +1,13 @@
 package com.hospital_management.users;
 import com.hospital_management.staff.IStaff;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.Scanner;
 
 public class Intern extends Person implements IStaff {
     Scanner scanner = new Scanner(System.in);
-
+    private static final Logger LOGGER = LogManager.getLogger(Nurse.class);
     @Override
     public String toString() {
         return "Intern first name__"+this.getFirstName()
@@ -39,17 +42,17 @@ public class Intern extends Person implements IStaff {
         boolean flag = false;
         for (int i = 0; i < Hospital.getInternDir().size(); i++) {
             if (Hospital.getInternDir().get(i).getPersonID().equals(userID)) {
-                System.out.println("Please enter updated specialization below:");
+                LOGGER.info("Please enter updated specialization below:");
                 String updatedSpecialization = scanner.nextLine();
                 Hospital.getInternDir().get(i).setSpecialization(updatedSpecialization);
-                System.out.println("Intern specialization updated to " + updatedSpecialization + ".");
+                LOGGER.info("Intern specialization updated to " + updatedSpecialization + ".");
                 break;
             } else {
                 flag = true;
             }
         }
         if (flag) {
-            System.out.println("Intern is not found with given ID, please try again");
+            LOGGER.info("Intern is not found with given ID, please try again");
         }
     }
 

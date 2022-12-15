@@ -3,12 +3,14 @@ import com.hospital_management.exceptions.InvalidUserIdException;
 import com.hospital_management.prescription.Prescription;
 import com.hospital_management.staff.IStaff;
 import com.hospital_management.exceptions.UserNotFoundException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Objects;
 import java.util.Scanner;
 
 public class Doctor extends Person implements IStaff {
-
+    private static final Logger LOGGER = LogManager.getLogger(Doctor.class);
 
     @Override
     public String toString() {
@@ -52,10 +54,10 @@ public class Doctor extends Person implements IStaff {
         boolean ifDoctorNotFound = true;
         for (int i = 0; i < Hospital.getDoctorDir().size(); i++) {
             if (Hospital.getDoctorDir().get(i).getPersonID().equals(userID)) {
-                System.out.println("Please enter updated specialization below:");
+                LOGGER.info("Please enter updated specialization below:");
                 String updatedSpecialization = scanner.nextLine();
                 Hospital.getDoctorDir().get(i).setSpecialization(updatedSpecialization);
-                System.out.println("Doctors specialization is updated to " + updatedSpecialization + ".");
+                LOGGER.info("Doctors specialization is updated to " + updatedSpecialization + ".");
                 ifDoctorNotFound = false;
             }
         }
@@ -71,9 +73,7 @@ public class Doctor extends Person implements IStaff {
             if (Hospital.getDoctorDir().get(i).getPersonID().equals(userID)) {
                 Hospital.getDoctorDir().remove(i);
                 ifDoctorNotFound=false;
-                System.out.println("==============================");
-                System.out.println("===== Doctor is deleted ======");
-                System.out.println("==============================");
+                LOGGER.info("===== Doctor is deleted ======");
                 break;
             }
         }
@@ -84,23 +84,22 @@ public class Doctor extends Person implements IStaff {
 
     public static void prescribeMedicine() throws UserNotFoundException {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Please enter doctor name_");
+        LOGGER.info("Please enter doctor name_");
         String docName = scanner.nextLine();
         Doctor doctor = Hospital.getDoctorByName(docName);
         if (doctor==null){
             throw new UserNotFoundException("User does not exist");
         }
-        System.out.println("Please enter patient name_");
+        LOGGER.info("Please enter patient name_");
         String patientName = scanner.nextLine();
         Patient patient = Hospital.getPatientByName(patientName);
         if(patient==null){
             throw new UserNotFoundException("Patient does not exist");
         }
-        System.out.println("Type your prescription below:");
+        LOGGER.info("Type your prescription below:");
         String medicine = scanner.nextLine();
-        System.out.println("Please enter date");
+        LOGGER.info("Please enter date");
         String date = scanner.nextLine();
-
         Prescription prescription = new Prescription();
         prescription.prescribe(doctor, patient, medicine, date);
     }

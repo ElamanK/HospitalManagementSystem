@@ -1,5 +1,4 @@
 package com.hospital_management.runner;
-
 import com.hospital_management.appointments.AppointmentUtils;
 import com.hospital_management.exceptions.*;
 import com.hospital_management.prescription.Prescription;
@@ -7,7 +6,6 @@ import com.hospital_management.reception.Receptionist;
 import com.hospital_management.users.*;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
-
 import java.util.*;
 
 public class AppRunner {
@@ -17,6 +15,22 @@ public class AppRunner {
     static {
         LOGGER.info("Entering application.");
         LOGGER.info("*** Welcome to the Hospital Management System ***.");
+        Patient patient = new Patient();
+        patient.createPatient("Jacey","Nichols","+1234567890",
+                "male","25","2","flu","12.12.21");
+        Hospital.getPatientDir().add(patient);
+        Patient patient1 = new Patient();
+        patient1.createPatient("Harry","Otter","+123545454",
+                "male","56","2+","cold","12.12.22");
+        Hospital.getPatientDir().add(patient1);
+        Doctor doctor = new Doctor();
+        doctor.createUser("Carson","Smith","123","+12312312312",
+                "male","28","dentist");
+        Hospital.getDoctorDir().add(doctor);
+        Doctor doctor1 = new Doctor();
+        doctor1.createUser("Matilda","Friedman","122","+13312345312",
+                "female","25","surgeon");
+        Hospital.getDoctorDir().add(doctor1);
     }
 
     public static void main(String[] args) {
@@ -520,7 +534,9 @@ public class AppRunner {
         LOGGER.info("3 - To send message to patient");
         LOGGER.info("4 - To delete patient info with patient id");
         LOGGER.info("5 - To print all patients info");
-        LOGGER.info("6 - To main page");
+        LOGGER.info("6 - To choose provider");
+        LOGGER.info("7 - To view information about provider");
+        LOGGER.info("8 - To main page");
     }
 
     private static void makeAChoiceForPatient(String option) {
@@ -582,7 +598,11 @@ public class AppRunner {
                 if (isPatientExist()) {
                     LOGGER.info("Please enter patients id:");
                     String patientToDelete = scanner.nextLine();
-                    patient.deleteUser(patientToDelete);
+                    try {
+                        patient.deleteUser(patientToDelete);
+                    } catch (UserNotFoundException e) {
+                        LOGGER.error("Exception occurred -> ",e);
+                    }
                     LOGGER.info("Patient is deleted.");
                 } else {
                     LOGGER.info("There is no patient in database, please create patient");
@@ -602,6 +622,28 @@ public class AppRunner {
                 }
                 break;
             case "6":
+                LOGGER.info("Please enter patient name");
+                String patName=scanner.nextLine();
+                LOGGER.info("Please doctor name from list:");
+                for (int i = 0; i < Hospital.getDoctorDir().size(); i++) {
+                    LOGGER.info(i + 1 + ")" + Hospital.getDoctorDir().get(i).getFirstName() + " " + Hospital.getDoctorDir().get(i).getLastName());
+                }
+                String docNumberFromList = scanner.nextLine();
+                String docFullName = Hospital.getDoctorDir().get(Integer.parseInt(docNumberFromList) - 1).getFirstName()
+                        + " " + Hospital.getDoctorDir().get(Integer.parseInt(docNumberFromList) - 1).getLastName();
+
+                Patient pat = Hospital.getPatientByName(patName);
+                Doctor doc = Hospital.getDoctorByName(docFullName);
+                patient.selectProvider(pat,doc);
+                LOGGER.info("You have successfully set provider, your provider name "+ docFullName);
+                break;
+            case"7":
+                LOGGER.info("Please enter patient name");
+                String patientsName = scanner.nextLine();
+                LOGGER.info(Hospital.getHealthProviders().get(Hospital.getPatientByName(patientsName)));
+                LOGGER.info("Provider info printed");
+                break;
+            case "8":
                 printOptions();
                 do {
                     option = scanner.next();
@@ -610,8 +652,6 @@ public class AppRunner {
                 break;
         }
     }
-
-
     public static void continueOperation() {
         LOGGER.info("Click 1 to go main page");
         LOGGER.info("Click 0 to exit");
@@ -653,4 +693,7 @@ public class AppRunner {
     public static boolean isAppointmentExist1() {
         return !Hospital.getAppointments().isEmpty();
     }
+
+
+
 }

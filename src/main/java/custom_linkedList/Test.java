@@ -22,7 +22,7 @@ public class Test {
         stringList.add("World");
         System.out.println(stringList);
         System.out.println("Adding Test at position 2");
-        stringList.add(2, "Test");
+        stringList.add(2, "test");
         System.out.println(stringList);
         System.out.println("Clearing list");
         stringList.clear();

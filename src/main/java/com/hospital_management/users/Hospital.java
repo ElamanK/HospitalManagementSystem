@@ -2,19 +2,28 @@ package com.hospital_management.users;
 import com.hospital_management.appointments.Appointment;
 import com.hospital_management.bills.Bill;
 import com.hospital_management.prescription.Prescription;
-
-
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
 
 
 public class Hospital {
     private static ArrayList<Doctor> doctorDir = new ArrayList<>();
     private static ArrayList<Patient> patientDir = new ArrayList<>();
-    private static ArrayList<Appointment> appointments = new ArrayList<>();
+    private static LinkedList<Appointment> appointments = new LinkedList<>();
     private static ArrayList<Intern> internDir = new ArrayList<>();
     private static ArrayList<Nurse> nurseDir = new ArrayList<>();
     private static ArrayList<Prescription> prescriptions = new ArrayList<>();
     private static ArrayList<Bill> bills = new ArrayList<>();
+    private static HashMap<Patient,Doctor> healthProviders = new HashMap<>();
+
+    public static HashMap<Patient, Doctor> getHealthProviders() {
+        return healthProviders;
+    }
+
+    public static void setHealthProviders(HashMap<Patient, Doctor> healthProviders) {
+        Hospital.healthProviders = healthProviders;
+    }
 
     public static ArrayList<Bill> getBills() {
         return bills;
@@ -84,11 +93,11 @@ public class Hospital {
         Hospital.doctorDir = doctorDir;
     }
 
-    public static ArrayList<Appointment> getAppointments() {
+    public static LinkedList<Appointment> getAppointments() {
         return appointments;
     }
 
-    public static void setAppointments(ArrayList<Appointment> appointments) {
+    public static void setAppointments(LinkedList<Appointment> appointments) {
         Hospital.appointments = appointments;
     }
 }

@@ -7,6 +7,6 @@ public interface IStaff {
 
     void updateUser(String userID) throws InvalidUserIdException, UserNotFoundException;
 
-    void deleteUser(String userID) throws InvalidUserIdException;
+    void deleteUser(String userID) throws InvalidUserIdException, UserNotFoundException;
 
 }
