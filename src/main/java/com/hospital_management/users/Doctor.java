@@ -8,6 +8,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.Objects;
 import java.util.Scanner;
+import java.util.function.UnaryOperator;
 
 public class Doctor extends Person implements IStaff {
     private static final Logger LOGGER = LogManager.getLogger(Doctor.class);
@@ -50,6 +51,7 @@ public class Doctor extends Person implements IStaff {
 
     @Override
     public void updateUser(String userID) throws UserNotFoundException {
+        UnaryOperator<String> unaryStrUpperCase = s -> s.toUpperCase();
         Scanner scanner = new Scanner(System.in);
         boolean ifDoctorNotFound = true;
         for (int i = 0; i < Hospital.getDoctorDir().size(); i++) {
@@ -57,7 +59,7 @@ public class Doctor extends Person implements IStaff {
                 LOGGER.info("Please enter updated specialization below:");
                 String updatedSpecialization = scanner.nextLine();
                 Hospital.getDoctorDir().get(i).setSpecialization(updatedSpecialization);
-                LOGGER.info("Doctors specialization is updated to " + updatedSpecialization + ".");
+                LOGGER.info("Doctors specialization is updated to " + unaryStrUpperCase.apply(updatedSpecialization) + ".");
                 ifDoctorNotFound = false;
             }
         }

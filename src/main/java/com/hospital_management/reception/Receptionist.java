@@ -3,17 +3,25 @@ import com.hospital_management.bills.Bill;
 import com.hospital_management.exceptions.BillNotFoundException;
 import com.hospital_management.exceptions.UserNotFoundException;
 import com.hospital_management.procedures.CTScan;
+import enums.ProceduresEnum;
+import com.hospital_management.procedures.UltraSound;
 import com.hospital_management.procedures.XRay;
 import com.hospital_management.users.Hospital;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Receptionist implements IReception{
+    ProceduresEnum proceduresEnum;
+    public void chooseProcedure(ProceduresEnum proceduresEnum){
+        this.proceduresEnum = proceduresEnum;
+    }
     private static final Logger LOGGER = LogManager.getLogger(Receptionist.class);
     Scanner scanner =new Scanner(System.in);
     Bill bill;
+
 
 
     public void generateBill() throws UserNotFoundException {
@@ -23,19 +31,42 @@ public class Receptionist implements IReception{
             throw new UserNotFoundException("Patient is not found");
         }
         LOGGER.info("Please choose procedure from list");
-        LOGGER.info("1 - CT Scan");
-        LOGGER.info("2 - X-Ray");
-        String option = scanner.next();
+        for (ProceduresEnum procedure : ProceduresEnum.values()){
+            LOGGER.info(procedure);
+        }
+
+        String option = scanner.nextLine().toLowerCase(Locale.ROOT);
         switch (option){
-            case "1":
+            case"ct_scan":
+                chooseProcedure(ProceduresEnum.CT_SCAN);
+                break;
+            case"xray":
+                chooseProcedure(ProceduresEnum.XRAY);
+                break;
+            case "ultrasound":
+                chooseProcedure(ProceduresEnum.ULTRASOUND);
+                break;
+
+        }
+
+
+
+        switch (proceduresEnum){
+            case CT_SCAN:
                 CTScan ctScan = new CTScan();
                 bill = new Bill(Hospital.getPatientByName(patientName), ctScan.getCost());
                 Hospital.getBills().add(bill);
                 LOGGER.info("Bill is generated");
                 break;
-            case "2":
+            case XRAY:
                 XRay xRay = new XRay();
                 bill = new Bill(Hospital.getPatientByName(patientName), xRay.getCost());
+                Hospital.getBills().add(bill);
+                LOGGER.info("Bill is generated");
+                break;
+            case ULTRASOUND:
+               UltraSound ultraSound = new UltraSound();
+                bill = new Bill(Hospital.getPatientByName(patientName), ultraSound.getCost());
                 Hospital.getBills().add(bill);
                 LOGGER.info("Bill is generated");
                 break;

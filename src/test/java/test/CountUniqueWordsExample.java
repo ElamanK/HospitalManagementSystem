@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
 
-public class TestExample {
+public class CountUniqueWordsExample {
 
 @Test
     public void test(){

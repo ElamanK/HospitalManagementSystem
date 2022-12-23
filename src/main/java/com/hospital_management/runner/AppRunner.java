@@ -4,9 +4,14 @@ import com.hospital_management.exceptions.*;
 import com.hospital_management.prescription.Prescription;
 import com.hospital_management.reception.Receptionist;
 import com.hospital_management.users.*;
+import enums.VisitingHoursEnum;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 import java.util.*;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
+
 
 public class AppRunner {
     private static final Logger LOGGER = LogManager.getLogger(AppRunner.class);
@@ -19,10 +24,17 @@ public class AppRunner {
         patient.createPatient("Jacey","Nichols","+1234567890",
                 "male","25","2","flu","12.12.21");
         Hospital.getPatientDir().add(patient);
+
         Patient patient1 = new Patient();
         patient1.createPatient("Harry","Otter","+123545454",
                 "male","56","2+","cold","12.12.22");
         Hospital.getPatientDir().add(patient1);
+
+        Patient patient2 = new Patient();
+        patient2.createPatient("Marta","Brown","+123545454",
+                "female","35","2+","flu","12.12.22");
+        Hospital.getPatientDir().add(patient2);
+
         Doctor doctor = new Doctor();
         doctor.createUser("Carson","Smith","123","+12312312312",
                 "male","28","dentist");
@@ -32,7 +44,6 @@ public class AppRunner {
                 "female","25","surgeon");
         Hospital.getDoctorDir().add(doctor1);
     }
-
     public static void main(String[] args) {
         printOptions();
         Scanner scanner = new Scanner(System.in);
@@ -46,7 +57,6 @@ public class AppRunner {
         } while (!option.equals("0"));
         LOGGER.info("User exits application.");
     }
-
     private static void printOptions() {
         LOGGER.info("Main menu printed.");
         LOGGER.info("Please choose on of the following options.");
@@ -59,7 +69,6 @@ public class AppRunner {
         LOGGER.info("7 - For reception");
         LOGGER.info("0 - To exit");
     }
-
     private static void makeAChoice(String choice) {
         Scanner scanner = new Scanner(System.in);
         switch (choice) {
@@ -112,14 +121,14 @@ public class AppRunner {
 
         }
     }
-
     private static void printReceptionOptions() {
         LOGGER.info("1 - To generate bill");
         LOGGER.info("2 - To view patient bills");
+        LOGGER.info("3 - To view list of patients with specific diagnose");
     }
-
     private static void makeChoiceForReception(String choice) {
         Receptionist receptionist = new Receptionist();
+        Scanner scanner = new Scanner(System.in);
         switch (choice) {
             case "1":
                 try {
@@ -135,18 +144,26 @@ public class AppRunner {
                     LOGGER.error("Error occurred ", e);
                 }
                 break;
+            case "3":
+                LOGGER.info("Please enter specific diagnose to view list of patients with that diagnose");
+                String diagnose = scanner.next();
+                Predicate<Patient> predicate = p -> p.getDiagnosis().equalsIgnoreCase(diagnose);
+                for (Patient patient:Hospital.getPatientDir()) {
+                    if(predicate.test(patient)){
+                        LOGGER.info(patient.getFirstName()+" "+ patient.getLastName()+ " diagnose "+diagnose);
+                    }
+                }
+                break;
             default:
                 LOGGER.info("Incorrect option, please try again");
                 break;
 
         }
     }
-
     private static void printPrescriptions() {
         LOGGER.info("1 - For new prescription");
         LOGGER.info("2 - View all patients prescriptions");
     }
-
     private static void makeChoiceForPrescription(String choice) {
         Scanner scanner = new Scanner(System.in);
         switch (choice) {
@@ -181,7 +198,6 @@ public class AppRunner {
 
         }
     }
-
     private static void printInternOptions() {
         LOGGER.info("1 - For new intern");
         LOGGER.info("2 - To update intern specialization with intern id");
@@ -189,7 +205,6 @@ public class AppRunner {
         LOGGER.info("4 - To delete intern info with intern id");
         LOGGER.info("5 - To main page");
     }
-
     private static void makeChoiceForIntern(String choice) {
         Intern intern = new Intern();
         Scanner scanner = new Scanner(System.in);
@@ -261,7 +276,6 @@ public class AppRunner {
                 break;
         }
     }
-
     private static void printNurseOptions() {
         LOGGER.info("1 - For new nurse");
         LOGGER.info("2 - To update nurse specialization with nurse id");
@@ -269,7 +283,6 @@ public class AppRunner {
         LOGGER.info("4 - To delete nurse info with nurse id");
         LOGGER.info("5 - To main page");
     }
-
     private static void makeChoiceForNurse(String option) {
         Nurse nurse = new Nurse();
         Scanner scanner = new Scanner(System.in);
@@ -345,14 +358,12 @@ public class AppRunner {
                 break;
         }
     }
-
     private static void printAppointmentOptions() {
         LOGGER.info("1 - To make appointment with doctor");
         LOGGER.info("2 - To view all scheduled appointments");
         LOGGER.info("3 - To cancel appointment");
         LOGGER.info("4 - To main page");
     }
-
     private static void makeChoiceForAppointment(String option) {
         Scanner scanner = new Scanner(System.in);
         switch (option) {
@@ -376,14 +387,18 @@ public class AppRunner {
                         LOGGER.info("Patient is not found, please try again");
                         break;
                     }
+                    Function<String, String> fun = p -> "Welcome "+p.toUpperCase()+"!!!";
+                    LOGGER.info(fun.apply(patientFullName));
                     LOGGER.info("Enter date");
                     String appDate = scanner.nextLine();
-                    LOGGER.info("Enter time");
+                    for(VisitingHoursEnum value : VisitingHoursEnum.values()){
+                        LOGGER.info(value+" "+value.getWorkingHour());
+                    }
+                    LOGGER.info("Enter time from given time slots");
                     String appTime = scanner.nextLine();
                     AppointmentUtils.makeAppointment(Hospital.getDoctorByName(docFullName),
                             Hospital.getPatientByName(patientFullName), appDate, appTime);
                     LOGGER.info("Appointment with doctor scheduled.");
-//                    System.out.println("Your appointment with doctor " + docFullName + " scheduled successfully");
                 } else {
                     LOGGER.info("Please create doctor/patient first and try again");
                 }
@@ -422,7 +437,6 @@ public class AppRunner {
                 break;
         }
     }
-
     private static void printDoctorOptions() {
         LOGGER.info("1 - For new doctor");
         LOGGER.info("2 - To update doctor specialization with doctor id");
@@ -430,7 +444,6 @@ public class AppRunner {
         LOGGER.info("4 - To delete doctor info with doctor id");
         LOGGER.info("5 - To main page");
     }
-
     private static void makeChoiceForDoctor(String option) {
         Doctor doctor = new Doctor();
         Scanner scanner = new Scanner(System.in);
@@ -440,11 +453,13 @@ public class AppRunner {
                 String docFirstName = scanner.nextLine();
                 if (docFirstName.isEmpty()) {
                     LOGGER.info("first name can't be empty, try again");
+                    break;
                 }
                 LOGGER.info("Please enter doctors lastName:");
                 String docLastName = scanner.nextLine();
                 if (docLastName.isEmpty()) {
                     LOGGER.info("last name can't be empty, try again");
+                    break;
                 }
                 LOGGER.info("Please enter doctors ID:");
                 String docID = scanner.nextLine();
@@ -526,7 +541,6 @@ public class AppRunner {
                 break;
         }
     }
-
     private static void printPatientOptions() {
         LOGGER.info("Please choose on of the following options");
         LOGGER.info("1 - For new patient");
@@ -538,7 +552,6 @@ public class AppRunner {
         LOGGER.info("7 - To view information about provider");
         LOGGER.info("8 - To main page");
     }
-
     private static void makeAChoiceForPatient(String option) {
         Patient patient = new Patient();
         Scanner scanner = new Scanner(System.in);
@@ -550,7 +563,6 @@ public class AppRunner {
                     LOGGER.error("First name can't be blank, please try again");
                     break;
                 }
-                LOGGER.info("First name entered.");
                 LOGGER.info("Please enter patients lastName:");
                 String lastName = scanner.nextLine();
                 if (lastName.isEmpty()) {
@@ -611,11 +623,13 @@ public class AppRunner {
             case "5":
                 LOGGER.info("-- All patients information --");
                 if (isPatientExist()) {
-                    for (int i = 0; i < Hospital.getPatientDir().size(); i++) {
-                        LOGGER.info("--------------------------------------------");
-                        LOGGER.info(Hospital.getPatientDir().get(i).toString());
-                        LOGGER.info("--------------------------------------------");
-                    }
+                    Consumer<Patient> getListOfPatients = p ->  LOGGER.info(p.toString()+"============================================");
+                    Hospital.getPatientDir().forEach(getListOfPatients);
+//                    for (int i = 0; i < Hospital.getPatientDir().size(); i++) {
+//                        LOGGER.info("--------------------------------------------");
+//                        LOGGER.info(Hospital.getPatientDir().get(i).toString());
+//                        LOGGER.info("--------------------------------------------");
+//                    }
                     LOGGER.info("Patient information printed.");
                 } else {
                     LOGGER.info("There is no patient in database, please try again");
@@ -669,27 +683,21 @@ public class AppRunner {
                 break;
         }
     }
-
     public static boolean isDoctorExist() {
         return !Hospital.getDoctorDir().isEmpty();
     }
-
     public static boolean isPatientExist() {
         return !Hospital.getPatientDir().isEmpty();
     }
-
     public static boolean isNurseExist() {
         return !Hospital.getNurseDir().isEmpty();
     }
-
     public static boolean isInternExist() {
         return !Hospital.getInternDir().isEmpty();
     }
-
     public static boolean isAppointmentExist() {
         return !Hospital.getAppointments().isEmpty();
     }
-
     public static boolean isAppointmentExist1() {
         return !Hospital.getAppointments().isEmpty();
     }
