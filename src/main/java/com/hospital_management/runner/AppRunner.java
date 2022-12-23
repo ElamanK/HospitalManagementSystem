@@ -125,6 +125,8 @@ public class AppRunner {
         LOGGER.info("1 - To generate bill");
         LOGGER.info("2 - To view patient bills");
         LOGGER.info("3 - To view list of patients with specific diagnose");
+        LOGGER.info("4 - To get list of doctors with specialization");
+        LOGGER.info("4 - To view average age of the patients by sex");
     }
     private static void makeChoiceForReception(String choice) {
         Receptionist receptionist = new Receptionist();
@@ -153,6 +155,22 @@ public class AppRunner {
                         LOGGER.info(patient.getFirstName()+" "+ patient.getLastName()+ " diagnose "+diagnose);
                     }
                 }
+                break;
+            case"4":
+                LOGGER.info("Please enter specialization to get list of doctors");
+                String specialization = scanner.nextLine();
+                Hospital.getDoctorDir().stream().filter(d-> d.getSpecialization().equals(specialization))
+                        .forEach(d-> LOGGER.info("Doctor "+d.getFirstName()+" "+d.getLastName()+", Specialization - "+specialization));
+                break;
+            case"5":
+                LOGGER.info("Please enter sex of the patient to see average age");
+                String sex = scanner.nextLine();
+                double averageAge = Hospital.getPatientDir().stream()
+                        .filter(p -> p.getGender().equalsIgnoreCase(sex))
+                        .mapToInt(p -> Integer.parseInt(p.getAge()))
+                        .average()
+                        .getAsDouble();
+                LOGGER.info("Average age of "+sex+" patients "+averageAge+" y");
                 break;
             default:
                 LOGGER.info("Incorrect option, please try again");
@@ -625,11 +643,6 @@ public class AppRunner {
                 if (isPatientExist()) {
                     Consumer<Patient> getListOfPatients = p ->  LOGGER.info(p.toString()+"============================================");
                     Hospital.getPatientDir().forEach(getListOfPatients);
-//                    for (int i = 0; i < Hospital.getPatientDir().size(); i++) {
-//                        LOGGER.info("--------------------------------------------");
-//                        LOGGER.info(Hospital.getPatientDir().get(i).toString());
-//                        LOGGER.info("--------------------------------------------");
-//                    }
                     LOGGER.info("Patient information printed.");
                 } else {
                     LOGGER.info("There is no patient in database, please try again");
@@ -701,7 +714,4 @@ public class AppRunner {
     public static boolean isAppointmentExist1() {
         return !Hospital.getAppointments().isEmpty();
     }
-
-
-
 }

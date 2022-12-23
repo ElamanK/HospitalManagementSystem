@@ -30,7 +30,7 @@ public class CountUniqueWords {
             }
         }
         FileUtils.write(myFile,
-                "\nCount of unique words -> " +numberOfWords.size(),"UTF-8",true);
+                "Count of unique words -> " +numberOfWords.size(),"UTF-8",true);
 
     }
 
