@@ -1,6 +1,4 @@
 package com.hospital_management.prescription;
-
-
 import com.hospital_management.users.Doctor;
 import com.hospital_management.users.Hospital;
 import com.hospital_management.users.Patient;
@@ -14,31 +12,24 @@ public class Prescription implements IPrescription {
     public Doctor getDoctor() {
         return doctor;
     }
-
     public void setDoctor(Doctor doctor) {
         this.doctor = doctor;
     }
-
     public Patient getPatient() {
         return patient;
     }
-
     public void setPatient(Patient patient) {
         this.patient = patient;
     }
-
     public String getMedicine() {
         return medicine;
     }
-
     public void setMedicine(String medicine) {
         this.medicine = medicine;
     }
-
     public String getDate() {
         return date;
     }
-
     public void setDate(String date) {
         this.date = date;
     }

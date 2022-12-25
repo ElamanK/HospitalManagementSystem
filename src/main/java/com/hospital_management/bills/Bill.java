@@ -16,30 +16,24 @@ public class Bill {
     public String toString() {
         return "-Bill-"+"\n"+
                 "patientName= " + patient.getFirstName()+" "+patient.getLastName()+"\n"+
-                "billAmount='" + billAmount + "\n"+
-                "billNumber='" + billNumber;
+                "billAmount= " + billAmount + "\n"+
+                "billNumber= " + billNumber;
     }
-
     public Patient getPatient() {
         return patient;
     }
-
     public void setPatient(Patient patient) {
         this.patient = patient;
     }
-
     public String getBillAmount() {
         return billAmount;
     }
-
     public void setBillAmount(String billAmount) {
         this.billAmount = billAmount;
     }
-
     public String getBillNumber() {
         return billNumber;
     }
-
     public void setBillNumber(String billNumber) {
         this.billNumber = billNumber;
     }

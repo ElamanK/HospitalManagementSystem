@@ -4,14 +4,13 @@ import com.hospital_management.exceptions.*;
 import com.hospital_management.prescription.Prescription;
 import com.hospital_management.reception.Receptionist;
 import com.hospital_management.users.*;
-import enums.VisitingHoursEnum;
+import enums.VisitingHour;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
-
 
 public class AppRunner {
     private static final Logger LOGGER = LogManager.getLogger(AppRunner.class);
@@ -21,29 +20,30 @@ public class AppRunner {
         LOGGER.info("Entering application.");
         LOGGER.info("*** Welcome to the Hospital Management System ***.");
         Patient patient = new Patient();
-        patient.createPatient("Jacey","Nichols","+1234567890",
-                "male","25","2","flu","12.12.21");
+        patient.createPatient("Jacey", "Nichols", "+1234567890",
+                "male", "25", "2", "flu", "12.12.21");
         Hospital.getPatientDir().add(patient);
 
         Patient patient1 = new Patient();
-        patient1.createPatient("Harry","Otter","+123545454",
-                "male","56","2+","cold","12.12.22");
+        patient1.createPatient("Harry", "Otter", "+123545454",
+                "male", "56", "2+", "cold", "12.12.22");
         Hospital.getPatientDir().add(patient1);
 
         Patient patient2 = new Patient();
-        patient2.createPatient("Marta","Brown","+123545454",
-                "female","35","2+","flu","12.12.22");
+        patient2.createPatient("Marta", "Brown", "+123545454",
+                "female", "35", "2+", "flu", "12.12.22");
         Hospital.getPatientDir().add(patient2);
 
         Doctor doctor = new Doctor();
-        doctor.createUser("Carson","Smith","123","+12312312312",
-                "male","28","dentist");
+        doctor.createUser("Carson", "Smith", "123", "+12312312312",
+                "male", "28", "dentist");
         Hospital.getDoctorDir().add(doctor);
         Doctor doctor1 = new Doctor();
-        doctor1.createUser("Matilda","Friedman","122","+13312345312",
-                "female","25","surgeon");
+        doctor1.createUser("Matilda", "Friedman", "122", "+13312345312",
+                "female", "25", "surgeon");
         Hospital.getDoctorDir().add(doctor1);
     }
+
     public static void main(String[] args) {
         printOptions();
         Scanner scanner = new Scanner(System.in);
@@ -51,8 +51,8 @@ public class AppRunner {
         do {
             option = scanner.next();
             makeAChoice(option);
-            if (stopOperation){
-                option ="0";
+            if (stopOperation) {
+                option = "0";
             }
         } while (!option.equals("0"));
         LOGGER.info("User exits application.");
@@ -74,7 +74,7 @@ public class AppRunner {
         switch (choice) {
             case "0":
                 LOGGER.info("Thank you for using our application.");
-                stopOperation=true;
+                stopOperation = true;
                 break;
             case "1":
                 printPatientOptions();
@@ -150,19 +150,19 @@ public class AppRunner {
                 LOGGER.info("Please enter specific diagnose to view list of patients with that diagnose");
                 String diagnose = scanner.next();
                 Predicate<Patient> predicate = p -> p.getDiagnosis().equalsIgnoreCase(diagnose);
-                for (Patient patient:Hospital.getPatientDir()) {
-                    if(predicate.test(patient)){
-                        LOGGER.info(patient.getFirstName()+" "+ patient.getLastName()+ " diagnose "+diagnose);
+                for (Patient patient : Hospital.getPatientDir()) {
+                    if (predicate.test(patient)) {
+                        LOGGER.info(patient.getFirstName() + " " + patient.getLastName() + " diagnose " + diagnose);
                     }
                 }
                 break;
-            case"4":
+            case "4":
                 LOGGER.info("Please enter specialization to get list of doctors");
                 String specialization = scanner.nextLine();
-                Hospital.getDoctorDir().stream().filter(d-> d.getSpecialization().equals(specialization))
-                        .forEach(d-> LOGGER.info("Doctor "+d.getFirstName()+" "+d.getLastName()+", Specialization - "+specialization));
+                Hospital.getDoctorDir().stream().filter(d -> d.getSpecialization().equals(specialization))
+                        .forEach(d -> LOGGER.info("Doctor " + d.getFirstName() + " " + d.getLastName() + ", Specialization - " + specialization));
                 break;
-            case"5":
+            case "5":
                 LOGGER.info("Please enter sex of the patient to see average age");
                 String sex = scanner.nextLine();
                 double averageAge = Hospital.getPatientDir().stream()
@@ -170,7 +170,7 @@ public class AppRunner {
                         .mapToInt(p -> Integer.parseInt(p.getAge()))
                         .average()
                         .getAsDouble();
-                LOGGER.info("Average age of "+sex+" patients "+averageAge+" y");
+                LOGGER.info("Average age of " + sex + " patients " + averageAge + " y");
                 break;
             default:
                 LOGGER.info("Incorrect option, please try again");
@@ -405,12 +405,12 @@ public class AppRunner {
                         LOGGER.info("Patient is not found, please try again");
                         break;
                     }
-                    Function<String, String> fun = p -> "Welcome "+p.toUpperCase()+"!!!";
+                    Function<String, String> fun = p -> "Welcome " + p.toUpperCase() + "!!!";
                     LOGGER.info(fun.apply(patientFullName));
                     LOGGER.info("Enter date");
                     String appDate = scanner.nextLine();
-                    for(VisitingHoursEnum value : VisitingHoursEnum.values()){
-                        LOGGER.info(value+" "+value.getWorkingHour());
+                    for (VisitingHour value : VisitingHour.values()) {
+                        LOGGER.info(value + " " + value.getWorkingHour());
                     }
                     LOGGER.info("Enter time from given time slots");
                     String appTime = scanner.nextLine();
@@ -631,7 +631,7 @@ public class AppRunner {
                     try {
                         patient.deleteUser(patientToDelete);
                     } catch (UserNotFoundException e) {
-                        LOGGER.error("Exception occurred -> ",e);
+                        LOGGER.error("Exception occurred -> ", e);
                     }
                     LOGGER.info("Patient is deleted.");
                 } else {
@@ -641,7 +641,7 @@ public class AppRunner {
             case "5":
                 LOGGER.info("-- All patients information --");
                 if (isPatientExist()) {
-                    Consumer<Patient> getListOfPatients = p ->  LOGGER.info(p.toString()+"============================================");
+                    Consumer<Patient> getListOfPatients = p -> LOGGER.info(p.toString() + "============================================");
                     Hospital.getPatientDir().forEach(getListOfPatients);
                     LOGGER.info("Patient information printed.");
                 } else {
@@ -650,7 +650,7 @@ public class AppRunner {
                 break;
             case "6":
                 LOGGER.info("Please enter patient name");
-                String patName=scanner.nextLine();
+                String patName = scanner.nextLine();
                 LOGGER.info("Please doctor name from list:");
                 for (int i = 0; i < Hospital.getDoctorDir().size(); i++) {
                     LOGGER.info(i + 1 + ")" + Hospital.getDoctorDir().get(i).getFirstName() + " " + Hospital.getDoctorDir().get(i).getLastName());
@@ -661,10 +661,10 @@ public class AppRunner {
 
                 Patient pat = Hospital.getPatientByName(patName);
                 Doctor doc = Hospital.getDoctorByName(docFullName);
-                patient.selectProvider(pat,doc);
-                LOGGER.info("You have successfully set provider, your provider name "+ docFullName);
+                patient.selectProvider(pat, doc);
+                LOGGER.info("You have successfully set provider, your provider name " + docFullName);
                 break;
-            case"7":
+            case "7":
                 LOGGER.info("Please enter patient name");
                 String patientsName = scanner.nextLine();
                 LOGGER.info(Hospital.getHealthProviders().get(Hospital.getPatientByName(patientsName)));

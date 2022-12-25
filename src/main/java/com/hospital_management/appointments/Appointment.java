@@ -3,7 +3,6 @@ import com.hospital_management.users.Doctor;
 import com.hospital_management.users.Patient;
 import com.hospital_management.utils.MyRandom;
 
-
 public final class Appointment{
     private Patient patient;
     private Doctor doctor;
@@ -50,12 +49,10 @@ public final class Appointment{
     public int hashCode() {
         return super.hashCode();
     }
-
     @Override
     public boolean equals(Object obj) {
         return super.equals(obj);
     }
-
     @Override
     public String toString() {
         return "Patient name__" + patient.getFirstName()+" "+patient.getLastName()

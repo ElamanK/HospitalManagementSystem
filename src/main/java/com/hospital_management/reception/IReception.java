@@ -1,6 +1,4 @@
 package com.hospital_management.reception;
-
-
 import com.hospital_management.exceptions.BillNotFoundException;
 import com.hospital_management.exceptions.UserNotFoundException;
 

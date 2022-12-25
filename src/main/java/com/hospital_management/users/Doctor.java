@@ -5,7 +5,6 @@ import com.hospital_management.staff.IStaff;
 import com.hospital_management.exceptions.UserNotFoundException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.util.Objects;
 import java.util.Scanner;
 import java.util.function.UnaryOperator;
@@ -23,12 +22,10 @@ public class Doctor extends Person implements IStaff {
                 + "\n" + "Doctors age__" + this.getAge()
                 + "\n" + "Doctors specialization__" + this.getSpecialization();
     }
-
     @Override
     public int hashCode() {
         return Integer.parseInt(personID);
     }
-
     @Override
     public boolean equals(Object obj) {
         if(this == obj) return true;
@@ -36,8 +33,6 @@ public class Doctor extends Person implements IStaff {
         if(!Objects.equals(this.firstName, ((Doctor) obj).firstName)) return false;
         return false;
     }
-
-
     @Override
     public void createUser(String firstName, String lastName, String docID, String phoneNumber, String gender, String age, String specialization) {
         this.firstName = firstName;
@@ -48,7 +43,6 @@ public class Doctor extends Person implements IStaff {
         this.age = age;
         this.specialization = specialization;
     }
-
     @Override
     public void updateUser(String userID) throws UserNotFoundException {
         UnaryOperator<String> unaryStrUpperCase = s -> s.toUpperCase();
@@ -67,7 +61,6 @@ public class Doctor extends Person implements IStaff {
             throw new UserNotFoundException("Doctor is not found");
         }
     }
-
     @Override
     public void deleteUser(String userID) throws InvalidUserIdException {
         boolean ifDoctorNotFound = true;
@@ -83,7 +76,6 @@ public class Doctor extends Person implements IStaff {
             throw new InvalidUserIdException("Incorrect doctor ID");
         }
     }
-
     public static void prescribeMedicine() throws UserNotFoundException {
         Scanner scanner = new Scanner(System.in);
         LOGGER.info("Please enter doctor name_");

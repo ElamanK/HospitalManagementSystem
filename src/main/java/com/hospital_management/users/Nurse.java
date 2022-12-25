@@ -1,11 +1,8 @@
 package com.hospital_management.users;
-
-
 import com.hospital_management.exceptions.UserNotFoundException;
 import com.hospital_management.staff.IStaff;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.util.Scanner;
 
 
@@ -67,8 +64,8 @@ public class Nurse extends Person implements IStaff {
 
     @Override
     public void deleteUser(String userID) {
-        for (int i = 0; i< Hospital.getNurseDir().size(); i++) {
-            if(Hospital.getNurseDir().get(i).getPersonID().equals(userID)){
+        for (int i = 0; i < Hospital.getNurseDir().size(); i++) {
+            if (Hospital.getNurseDir().get(i).getPersonID().equals(userID)) {
                 Hospital.getNurseDir().remove(i);
                 break;
             }

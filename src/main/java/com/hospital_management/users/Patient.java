@@ -5,10 +5,7 @@ import com.hospital_management.utils.MyRandom;
 import com.hospital_management.runner.AppRunner;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-
 import java.util.Scanner;
-
 
 public class Patient implements IStaff {
     private static final Logger LOGGER = LogManager.getLogger(Patient.class);
@@ -23,7 +20,6 @@ public class Patient implements IStaff {
     private String diagnosis;
     private String hospitalizationDate;
     private String patientID;
-
     public Patient() {
     }
 
@@ -65,80 +61,60 @@ public class Patient implements IStaff {
     public int hashCode() {
         return Integer.parseInt(getPatientID());
     }
-
-
     public String getFirstName() {
         return firstName;
     }
-
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-
     public String getLastName() {
         return lastName;
     }
-
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
     public String getPhoneNumber() {
         return phoneNumber;
     }
-
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-
     public String getGender() {
         return gender;
     }
-
     public void setGender(String gender) {
         this.gender = gender;
     }
-
     public String getAge() {
         return age;
     }
-
     public void setAge(String age) {
         this.age = age;
     }
-
     public String getBloodGroup() {
         return bloodGroup;
     }
-
     public void setBloodGroup(String bloodGroup) {
         this.bloodGroup = bloodGroup;
     }
-
     public String getDiagnosis() {
         return diagnosis;
     }
-
     public void setDiagnosis(String diagnosis) {
         this.diagnosis = diagnosis;
     }
-
     public String getHospitalizationDate() {
         return hospitalizationDate;
     }
-
     public void setHospitalizationDate(String hospitalizationDate) {
         this.hospitalizationDate = hospitalizationDate;
     }
-
     public String getPatientID() {
         return patientID;
     }
-
     public void setPatientID(String patientID) {
         this.patientID = patientID;
     }
-
 
 
     public void createPatient(String firstName, String lastName, String phoneNumber, String gender, String age, String bloodGroup, String diagnosis, String hospitalizationDate) {
@@ -194,7 +170,8 @@ public class Patient implements IStaff {
         throw new UserNotFoundException("Patient not found");
     }
 
-    public void selectProvider(Patient patient, Doctor doctor){
-            Hospital.getHealthProviders().put(patient,doctor);}
+    public void selectProvider(Patient patient, Doctor doctor) {
+        Hospital.getHealthProviders().put(patient, doctor);
+    }
 
 }

@@ -1,6 +1,6 @@
 package enums;
 
-public enum VisitingHoursEnum {
+public enum VisitingHour {
     SUNDAY("closed"),
     MONDAY("9-5"),
     TUESDAY("9-5"),
@@ -10,12 +10,10 @@ public enum VisitingHoursEnum {
     SATURDAY("9-3");
 
     private final String workingHour;
-
     public String getWorkingHour() {
         return workingHour;
     }
-
-    VisitingHoursEnum(String workingHour){
+    VisitingHour(String workingHour){
     this.workingHour=workingHour;
     }
 

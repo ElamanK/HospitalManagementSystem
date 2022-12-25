@@ -1,6 +1,4 @@
 package com.hospital_management.prescription;
-
-
 import com.hospital_management.users.Doctor;
 import com.hospital_management.users.Patient;
 
