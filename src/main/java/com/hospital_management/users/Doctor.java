@@ -12,6 +12,12 @@ import java.util.function.UnaryOperator;
 public class Doctor extends Person implements IStaff {
     private static final Logger LOGGER = LogManager.getLogger(Doctor.class);
 
+
+    public void print(){
+        System.out.println("Hello from doc");
+    }
+
+
     @Override
     public String toString() {
         return "Doctor first name__" + this.getFirstName()
