@@ -16192,3 +16192,899 @@ billNumber= 9894
 2023-01-02 01:59:48,622 INFO t.c.MyThread [Thread-7] Thread-7 gets connection
 2023-01-02 01:59:48,622 INFO t.c.ConnectionPool [Thread-7] Connection is ready
 2023-01-02 01:59:48,622 INFO t.c.MyThread [Thread-7] 0 available connections
+2023-01-03 10:04:14,140 INFO t.c.MyThread [main] Connection pool test starts from this line
+2023-01-03 10:04:14,140 INFO t.c.MyThread [Thread-1] Thread-1 gets connection
+2023-01-03 10:04:14,140 INFO t.c.ConnectionPool [Thread-1] Connection is ready
+2023-01-03 10:04:14,140 INFO t.c.MyThread [Thread-1] 4 available connections
+2023-01-03 10:04:15,644 INFO t.c.MyThread [Thread-2] Thread-2 gets connection
+2023-01-03 10:04:15,644 INFO t.c.ConnectionPool [Thread-2] Connection is ready
+2023-01-03 10:04:15,644 INFO t.c.MyThread [Thread-2] 3 available connections
+2023-01-03 10:04:17,153 INFO t.c.MyThread [Thread-3] Thread-3 gets connection
+2023-01-03 10:04:17,153 INFO t.c.ConnectionPool [Thread-3] Connection is ready
+2023-01-03 10:04:17,153 INFO t.c.MyThread [Thread-3] 2 available connections
+2023-01-03 10:04:18,673 INFO t.c.MyThread [Thread-4] Thread-4 gets connection
+2023-01-03 10:04:18,676 INFO t.c.ConnectionPool [Thread-4] Connection is ready
+2023-01-03 10:04:18,676 INFO t.c.MyThread [Thread-4] 1 available connections
+2023-01-03 10:04:20,189 INFO t.c.MyThread [Thread-5] Thread-5 gets connection
+2023-01-03 10:04:20,189 INFO t.c.ConnectionPool [Thread-5] Connection is ready
+2023-01-03 10:04:20,189 INFO t.c.MyThread [Thread-5] 0 available connections
+2023-01-03 10:04:21,694 INFO t.c.MyThread [Thread-6] Thread-6 gets connection
+2023-01-03 10:04:21,694 INFO t.c.ConnectionPool [Thread-6] No available connection, please wait
+2023-01-03 10:04:22,694 INFO t.c.MyThread [Thread-6] 1 available connections
+2023-01-03 10:04:23,196 INFO t.c.MyThread [Thread-7] Thread-7 gets connection
+2023-01-03 10:04:23,196 INFO t.c.ConnectionPool [Thread-7] Connection is ready
+2023-01-03 10:04:23,196 INFO t.c.MyThread [Thread-7] 0 available connections
+2023-01-03 10:05:49,873 INFO c.h.r.AppRunner [main] Entering application.
+2023-01-03 10:05:49,876 INFO c.h.r.AppRunner [main] *** Welcome to the Hospital Management System ***.
+2023-01-03 10:05:49,880 INFO r.ReflectionTest [main] ----------------------------------------------------------------------------------
+2023-01-03 10:05:49,880 INFO r.ReflectionTest [main] Class name: com.hospital_management.users.Doctor
+2023-01-03 10:05:49,880 INFO r.ReflectionTest [main] Access modifier: public
+2023-01-03 10:05:49,880 INFO r.ReflectionTest [main] Declared fields: 
+2023-01-03 10:05:49,880 INFO r.ReflectionTest [main] LOGGER
+2023-01-03 10:05:49,880 INFO r.ReflectionTest [main] Implemented interfaces are : 
+2023-01-03 10:05:49,880 INFO r.ReflectionTest [main] com.hospital_management.staff.IStaff 
+2023-01-03 10:05:49,880 INFO r.ReflectionTest [main] Variable name: LOGGER
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Data type of variable: interface org.apache.logging.log4j.Logger
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Access modifiers of the variable:  private static final
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] All methods from com.hospital_management.users.Doctor
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Name of the method : createUser
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Name of the method : updateUser
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] com.hospital_management.exceptions.UserNotFoundException 
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Name of the method : deleteUser
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] com.hospital_management.exceptions.InvalidUserIdException 
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Name of the method : prescribeMedicine
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Method access modifiers : public static
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] com.hospital_management.exceptions.UserNotFoundException 
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Name of the method : lambda$updateUser$0
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Return type of the method : class java.lang.String
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Method access modifiers : private static
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Name of the method : equals
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Return type of the method : boolean
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] java.lang.Object 
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Name of the method : toString
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Return type of the method : class java.lang.String
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Name of the method : hashCode
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Return type of the method : int
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Name of the method : print
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] ----------------------------------------------------------------------------------
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] ----------------------------------------------------------------------------------
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Class name: com.hospital_management.users.Intern
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Access modifier: public
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Declared fields: 
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] scanner
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] LOGGER
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Implemented interfaces are : 
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] com.hospital_management.staff.IStaff 
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Variable name: scanner
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Data type of variable: class java.util.Scanner
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Access modifiers of the variable:  
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Variable name: LOGGER
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Data type of variable: interface org.apache.logging.log4j.Logger
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Access modifiers of the variable:  private static final
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] All methods from com.hospital_management.users.Intern
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Name of the method : createUser
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,884 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,894 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,894 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,894 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,894 INFO r.ReflectionTest [main] Name of the method : updateUser
+2023-01-03 10:05:49,894 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,894 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,894 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,894 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,894 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,894 INFO r.ReflectionTest [main] Name of the method : deleteUser
+2023-01-03 10:05:49,894 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,894 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,894 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Name of the method : equals
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Return type of the method : boolean
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] java.lang.Object 
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Name of the method : toString
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Return type of the method : class java.lang.String
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Name of the method : hashCode
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Return type of the method : int
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] ----------------------------------------------------------------------------------
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] ----------------------------------------------------------------------------------
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Class name: com.hospital_management.users.Nurse
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Access modifier: public
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Declared fields: 
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] LOGGER
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] scanner
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Implemented interfaces are : 
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] com.hospital_management.staff.IStaff 
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Variable name: LOGGER
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Data type of variable: interface org.apache.logging.log4j.Logger
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Access modifiers of the variable:  private static final
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Variable name: scanner
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Data type of variable: class java.util.Scanner
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Access modifiers of the variable:  
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] All methods from com.hospital_management.users.Nurse
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Name of the method : createUser
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Name of the method : updateUser
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] com.hospital_management.exceptions.UserNotFoundException 
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Name of the method : deleteUser
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Name of the method : equals
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Return type of the method : boolean
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] java.lang.Object 
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Name of the method : toString
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Return type of the method : class java.lang.String
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Name of the method : hashCode
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Return type of the method : int
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] ----------------------------------------------------------------------------------
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] ----------------------------------------------------------------------------------
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Class name: com.hospital_management.users.Patient
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Access modifier: public
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] Declared fields: 
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] LOGGER
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] scanner
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] firstName
+2023-01-03 10:05:49,896 INFO r.ReflectionTest [main] lastName
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] phoneNumber
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] gender
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] age
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] bloodGroup
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] diagnosis
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] hospitalizationDate
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] patientID
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Implemented interfaces are : 
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] com.hospital_management.staff.IStaff 
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Variable name: LOGGER
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Data type of variable: interface org.apache.logging.log4j.Logger
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Access modifiers of the variable:  private static final
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Variable name: scanner
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Data type of variable: class java.util.Scanner
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Access modifiers of the variable:  
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Variable name: firstName
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Data type of variable: class java.lang.String
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Access modifiers of the variable:  private
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Variable name: lastName
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Data type of variable: class java.lang.String
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Access modifiers of the variable:  private
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Variable name: phoneNumber
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Data type of variable: class java.lang.String
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Access modifiers of the variable:  private
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Variable name: gender
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Data type of variable: class java.lang.String
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Access modifiers of the variable:  private
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Variable name: age
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Data type of variable: class java.lang.String
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Access modifiers of the variable:  private
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Variable name: bloodGroup
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Data type of variable: class java.lang.String
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Access modifiers of the variable:  private
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Variable name: diagnosis
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Data type of variable: class java.lang.String
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Access modifiers of the variable:  private
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Variable name: hospitalizationDate
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Data type of variable: class java.lang.String
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Access modifiers of the variable:  private
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Variable name: patientID
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Data type of variable: class java.lang.String
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Access modifiers of the variable:  private
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] All methods from com.hospital_management.users.Patient
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Name of the method : getAge
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Return type of the method : class java.lang.String
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Name of the method : createUser
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Name of the method : updateUser
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Name of the method : deleteUser
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] com.hospital_management.exceptions.UserNotFoundException 
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Name of the method : setGender
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Name of the method : getDiagnosis
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Return type of the method : class java.lang.String
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Name of the method : getLastName
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Return type of the method : class java.lang.String
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Name of the method : setFirstName
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Name of the method : setPatientID
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Name of the method : getPatientID
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Return type of the method : class java.lang.String
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Name of the method : createPatient
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,905 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,916 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,916 INFO r.ReflectionTest [main] Name of the method : selectProvider
+2023-01-03 10:05:49,916 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,916 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,916 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,916 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,916 INFO r.ReflectionTest [main] com.hospital_management.users.Patient 
+2023-01-03 10:05:49,916 INFO r.ReflectionTest [main] com.hospital_management.users.Doctor 
+2023-01-03 10:05:49,916 INFO r.ReflectionTest [main] Name of the method : setLastName
+2023-01-03 10:05:49,916 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,916 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,916 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,916 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,916 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,916 INFO r.ReflectionTest [main] Name of the method : getFirstName
+2023-01-03 10:05:49,916 INFO r.ReflectionTest [main] Return type of the method : class java.lang.String
+2023-01-03 10:05:49,916 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Name of the method : getBloodGroup
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Return type of the method : class java.lang.String
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Name of the method : getPhoneNumber
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Return type of the method : class java.lang.String
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Name of the method : getGender
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Return type of the method : class java.lang.String
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Name of the method : setPhoneNumber
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Name of the method : setBloodGroup
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Name of the method : setDiagnosis
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Name of the method : setAge
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Name of the method : sendMessageToPatient
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Method access modifiers : public final
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,921 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,926 INFO r.ReflectionTest [main] Name of the method : setHospitalizationDate
+2023-01-03 10:05:49,926 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,926 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,926 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,926 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,926 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,926 INFO r.ReflectionTest [main] Name of the method : updatePatientDiagnose
+2023-01-03 10:05:49,926 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,926 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,926 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,926 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,926 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,926 INFO r.ReflectionTest [main] Name of the method : getHospitalizationDate
+2023-01-03 10:05:49,926 INFO r.ReflectionTest [main] Return type of the method : class java.lang.String
+2023-01-03 10:05:49,926 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,926 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,926 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,926 INFO r.ReflectionTest [main] Name of the method : toString
+2023-01-03 10:05:49,926 INFO r.ReflectionTest [main] Return type of the method : class java.lang.String
+2023-01-03 10:05:49,926 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,926 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,926 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,926 INFO r.ReflectionTest [main] Name of the method : hashCode
+2023-01-03 10:05:49,926 INFO r.ReflectionTest [main] Return type of the method : int
+2023-01-03 10:05:49,926 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,926 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,926 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,926 INFO r.ReflectionTest [main] ----------------------------------------------------------------------------------
+2023-01-03 10:05:49,926 INFO r.ReflectionTest [main] ----------------------------------------------------------------------------------
+2023-01-03 10:05:49,926 INFO r.ReflectionTest [main] Class name: com.hospital_management.users.Person
+2023-01-03 10:05:49,926 INFO r.ReflectionTest [main] Access modifier: public
+2023-01-03 10:05:49,926 INFO r.ReflectionTest [main] Declared fields: 
+2023-01-03 10:05:49,926 INFO r.ReflectionTest [main] firstName
+2023-01-03 10:05:49,926 INFO r.ReflectionTest [main] lastName
+2023-01-03 10:05:49,926 INFO r.ReflectionTest [main] personID
+2023-01-03 10:05:49,926 INFO r.ReflectionTest [main] phoneNumber
+2023-01-03 10:05:49,926 INFO r.ReflectionTest [main] gender
+2023-01-03 10:05:49,926 INFO r.ReflectionTest [main] age
+2023-01-03 10:05:49,926 INFO r.ReflectionTest [main] specialization
+2023-01-03 10:05:49,926 INFO r.ReflectionTest [main] Implemented interfaces are : 
+2023-01-03 10:05:49,926 INFO r.ReflectionTest [main] Variable name: firstName
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Data type of variable: class java.lang.String
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Access modifiers of the variable:  public
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Variable name: lastName
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Data type of variable: class java.lang.String
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Access modifiers of the variable:  public
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Variable name: personID
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Data type of variable: class java.lang.String
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Access modifiers of the variable:  public
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Variable name: phoneNumber
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Data type of variable: class java.lang.String
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Access modifiers of the variable:  public
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Variable name: gender
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Data type of variable: class java.lang.String
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Access modifiers of the variable:  public
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Variable name: age
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Data type of variable: class java.lang.String
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Access modifiers of the variable:  public
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Variable name: specialization
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Data type of variable: class java.lang.String
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Access modifiers of the variable:  public
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] All methods from com.hospital_management.users.Person
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Name of the method : getAge
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Return type of the method : class java.lang.String
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Name of the method : setGender
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Name of the method : getLastName
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Return type of the method : class java.lang.String
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Name of the method : setFirstName
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Name of the method : setLastName
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Name of the method : getFirstName
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Return type of the method : class java.lang.String
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Name of the method : getPhoneNumber
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Return type of the method : class java.lang.String
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Name of the method : getGender
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Return type of the method : class java.lang.String
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Name of the method : setPhoneNumber
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Name of the method : getPersonID
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Return type of the method : class java.lang.String
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Name of the method : setAge
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Name of the method : setPersonID
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Name of the method : getSpecialization
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Return type of the method : class java.lang.String
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Name of the method : setSpecialization
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Method access modifiers : public
+2023-01-03 10:05:49,931 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Name of the method : validateAgeOfPerson
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Method access modifiers : public static
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] com.hospital_management.exceptions.NegativeAgeException 
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] ----------------------------------------------------------------------------------
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] ----------------------------------------------------------------------------------
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Class name: com.hospital_management.runner.AppRunner
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Access modifier: public
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Declared fields: 
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] LOGGER
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] stopOperation
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Implemented interfaces are : 
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Variable name: LOGGER
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Data type of variable: interface org.apache.logging.log4j.Logger
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Access modifiers of the variable:  private static final
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Variable name: stopOperation
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Data type of variable: boolean
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Access modifiers of the variable:  private static
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] All methods from com.hospital_management.runner.AppRunner
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] ---printOption method from AppRunner invoked---
+2023-01-03 10:05:49,937 INFO c.h.r.AppRunner [main] Main menu printed.
+2023-01-03 10:05:49,937 INFO c.h.r.AppRunner [main] Please choose on of the following options.
+2023-01-03 10:05:49,937 INFO c.h.r.AppRunner [main] 1 - For patient
+2023-01-03 10:05:49,937 INFO c.h.r.AppRunner [main] 2 - For doctor
+2023-01-03 10:05:49,937 INFO c.h.r.AppRunner [main] 3 - For appointments
+2023-01-03 10:05:49,937 INFO c.h.r.AppRunner [main] 4 - For nurse
+2023-01-03 10:05:49,937 INFO c.h.r.AppRunner [main] 5 - For intern
+2023-01-03 10:05:49,937 INFO c.h.r.AppRunner [main] 6 - For prescription
+2023-01-03 10:05:49,937 INFO c.h.r.AppRunner [main] 7 - For reception
+2023-01-03 10:05:49,937 INFO c.h.r.AppRunner [main] 0 - To exit
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Name of the method : printOptions
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Method access modifiers : public static
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Name of the method : makeAChoice
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Method access modifiers : private static
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Name of the method : isDoctorExist
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Return type of the method : boolean
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Method access modifiers : public static
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Name of the method : isInternExist
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Return type of the method : boolean
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Method access modifiers : public static
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Name of the method : isPatientExist
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Return type of the method : boolean
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Method access modifiers : public static
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Name of the method : isNurseExist
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Return type of the method : boolean
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Method access modifiers : public static
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Name of the method : lambda$makeChoiceForAppointment$5
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Return type of the method : class java.lang.String
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Method access modifiers : private static
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Name of the method : printReceptionOptions
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Method access modifiers : private static
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,937 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Name of the method : makeChoiceForNurse
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Method access modifiers : private static
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Name of the method : printDoctorOptions
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Method access modifiers : private static
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Name of the method : lambda$makeChoiceForReception$4
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Return type of the method : int
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Method access modifiers : private static
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] com.hospital_management.users.Patient 
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Name of the method : printPrescriptions
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Method access modifiers : private static
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Name of the method : isAppointmentExist
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Return type of the method : boolean
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Method access modifiers : public static
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Name of the method : lambda$makeAChoiceForPatient$6
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Method access modifiers : private static
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] com.hospital_management.users.Patient 
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Name of the method : lambda$makeChoiceForReception$3
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Return type of the method : boolean
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Method access modifiers : private static
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] com.hospital_management.users.Patient 
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Name of the method : lambda$makeChoiceForReception$2
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Method access modifiers : private static
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] com.hospital_management.users.Doctor 
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Name of the method : printAppointmentOptions
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Method access modifiers : private static
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Name of the method : makeAChoiceForPatient
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Method access modifiers : private static
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,942 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,947 INFO r.ReflectionTest [main] Name of the method : isAppointmentExist1
+2023-01-03 10:05:49,947 INFO r.ReflectionTest [main] Return type of the method : boolean
+2023-01-03 10:05:49,947 INFO r.ReflectionTest [main] Method access modifiers : public static
+2023-01-03 10:05:49,947 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,947 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,947 INFO r.ReflectionTest [main] Name of the method : lambda$makeChoiceForReception$1
+2023-01-03 10:05:49,947 INFO r.ReflectionTest [main] Return type of the method : boolean
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Method access modifiers : private static
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] com.hospital_management.users.Doctor 
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Name of the method : continueOperation
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Method access modifiers : public static
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Name of the method : makeChoiceForIntern
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Method access modifiers : private static
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Name of the method : printNurseOptions
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Method access modifiers : private static
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Name of the method : printPatientOptions
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Method access modifiers : private static
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Name of the method : makeChoiceForReception
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Method access modifiers : private static
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Name of the method : makeChoiceForPrescription
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Method access modifiers : private static
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Name of the method : makeChoiceForAppointment
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Method access modifiers : private static
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Name of the method : makeChoiceForDoctor
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Method access modifiers : private static
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Name of the method : printInternOptions
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Method access modifiers : private static
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Name of the method : lambda$makeChoiceForReception$0
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Return type of the method : boolean
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Method access modifiers : private static
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] com.hospital_management.users.Patient 
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Name of the method : main
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Method access modifiers : public static
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] [Ljava.lang.String; 
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] ----------------------------------------------------------------------------------
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] ----------------------------------------------------------------------------------
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Class name: com.hospital_management.users.Hospital
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Access modifier: public
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Declared fields: 
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] doctorDir
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] patientDir
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] appointments
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] internDir
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] nurseDir
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] prescriptions
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] bills
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] healthProviders
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Implemented interfaces are : 
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Variable name: doctorDir
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Data type of variable: class java.util.ArrayList
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Access modifiers of the variable:  private static
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Variable name: patientDir
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Data type of variable: class java.util.ArrayList
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Access modifiers of the variable:  private static
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Variable name: appointments
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Data type of variable: class java.util.LinkedList
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Access modifiers of the variable:  private static
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Variable name: internDir
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Data type of variable: class java.util.ArrayList
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Access modifiers of the variable:  private static
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Variable name: nurseDir
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Data type of variable: class java.util.ArrayList
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Access modifiers of the variable:  private static
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Variable name: prescriptions
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Data type of variable: class java.util.ArrayList
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Access modifiers of the variable:  private static
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Variable name: bills
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Data type of variable: class java.util.ArrayList
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Access modifiers of the variable:  private static
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Variable name: healthProviders
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Data type of variable: class java.util.HashMap
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Access modifiers of the variable:  private static
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] All methods from com.hospital_management.users.Hospital
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Name of the method : getDoctorByName
+2023-01-03 10:05:49,948 INFO r.ReflectionTest [main] Return type of the method : class com.hospital_management.users.Doctor
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Method access modifiers : public static
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Name of the method : getDoctorDir
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Return type of the method : class java.util.ArrayList
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Method access modifiers : public static
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Name of the method : getInternDir
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Return type of the method : class java.util.ArrayList
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Method access modifiers : public static
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Name of the method : getNurseDir
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Return type of the method : class java.util.ArrayList
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Method access modifiers : public static
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Name of the method : getPatientDir
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Return type of the method : class java.util.ArrayList
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Method access modifiers : public static
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Name of the method : getPatientByName
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Return type of the method : class com.hospital_management.users.Patient
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Method access modifiers : public static
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] java.lang.String 
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Name of the method : getPrescriptions
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Return type of the method : class java.util.ArrayList
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Method access modifiers : public static
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Name of the method : getAppointments
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Return type of the method : class java.util.LinkedList
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Method access modifiers : public static
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Name of the method : setDoctorDir
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Method access modifiers : public static
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] java.util.ArrayList 
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Name of the method : getBills
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Return type of the method : class java.util.ArrayList
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Method access modifiers : public static
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Name of the method : setInternDir
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Method access modifiers : public static
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] java.util.ArrayList 
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Name of the method : setAppointments
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Method access modifiers : public static
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] java.util.LinkedList 
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Name of the method : setBills
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Method access modifiers : public static
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] java.util.ArrayList 
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Name of the method : setPrescriptions
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Method access modifiers : public static
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] java.util.ArrayList 
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Name of the method : setPatientDir
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Method access modifiers : public static
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] java.util.ArrayList 
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Name of the method : setNurseDir
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Method access modifiers : public static
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] java.util.ArrayList 
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Name of the method : getHealthProviders
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Return type of the method : class java.util.HashMap
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Method access modifiers : public static
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Name of the method : setHealthProviders
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Return type of the method : void
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Method access modifiers : public static
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Exception thrown by method :
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] Method parameter types : 
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] java.util.HashMap 
+2023-01-03 10:05:49,953 INFO r.ReflectionTest [main] ----------------------------------------------------------------------------------
+2023-01-06 00:05:08,317 INFO t.t.ThreadExtends [Thread-1] 0
+2023-01-06 00:05:08,317 INFO t.t.ThreadImplements [Thread-2] 0
+2023-01-06 00:05:09,380 INFO t.t.ThreadExtends [Thread-1] 1
+2023-01-06 00:05:09,380 INFO t.t.ThreadImplements [Thread-2] 1
+2023-01-06 00:05:10,381 INFO t.t.ThreadExtends [Thread-1] 2
+2023-01-06 00:05:10,381 INFO t.t.ThreadImplements [Thread-2] 2
+2023-01-06 00:05:11,381 INFO t.t.ThreadExtends [Thread-1] 3
+2023-01-06 00:05:11,381 INFO t.t.ThreadImplements [Thread-2] 3
+2023-01-06 00:05:12,381 INFO t.t.ThreadExtends [Thread-1] 4
+2023-01-06 00:05:12,381 INFO t.t.ThreadImplements [Thread-2] 4
+2023-01-06 00:05:13,381 INFO t.t.ThreadExtends [Thread-1] 5
+2023-01-06 00:05:13,381 INFO t.t.ThreadImplements [Thread-2] 5
