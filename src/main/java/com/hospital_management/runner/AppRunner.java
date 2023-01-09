@@ -57,7 +57,7 @@ public class AppRunner {
         } while (!option.equals("0"));
         LOGGER.info("User exits application.");
     }
-    private static void printOptions() {
+    public static void printOptions() {
         LOGGER.info("Main menu printed.");
         LOGGER.info("Please choose on of the following options.");
         LOGGER.info("1 - For patient");
