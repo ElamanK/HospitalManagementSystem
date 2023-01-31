@@ -1,4 +1,4 @@
-package database.bankdb.dao.mysql;
+package database.bankdb.dao.jdbc;
 import database.bankdb.connectionpool.ConnectionPool;
 import database.bankdb.dao.daointerfaces.ITransactionTypeDAO;
 import database.bankdb.models.TransactionType;
@@ -27,7 +27,23 @@ public class TransactionTypeDAO implements ITransactionTypeDAO {
 
     @Override
     public void insertEntity(TransactionType entity) {
-
+        Connection connection = ConnectionPool.getInstance().getConnection();
+        try (PreparedStatement statement = connection.prepareStatement(CREATE_TRANSACTION_TYPE)) {
+            statement.setString(1, entity.getTransactionTypeName());
+            statement.setString(2, entity.getTransactionTypeDescription());
+            statement.setDouble(3, entity.getFee());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            LOGGER.error(e);
+        }finally {
+            if (connection != null) {
+                try {
+                    connectionPool.releaseConnection(connection);
+                } catch (SQLException e) {
+                    LOGGER.error(e);
+                }
+            }
+        }
     }
 
     @Override
@@ -79,28 +95,6 @@ public class TransactionTypeDAO implements ITransactionTypeDAO {
                 }
             }
         }
-    }
-
-    @Override
-    public TransactionType createEntity(TransactionType entity) {
-        Connection connection = ConnectionPool.getInstance().getConnection();
-        try (PreparedStatement statement = connection.prepareStatement(CREATE_TRANSACTION_TYPE)) {
-            statement.setString(1, entity.getTransactionTypeName());
-            statement.setString(2, entity.getTransactionTypeDescription());
-            statement.setDouble(3, entity.getFee());
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            LOGGER.error(e);
-        }finally {
-            if (connection != null) {
-                try {
-                    connectionPool.releaseConnection(connection);
-                } catch (SQLException e) {
-                    LOGGER.error(e);
-                }
-            }
-        }
-        return entity;
     }
 
     @Override

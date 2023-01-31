@@ -1,12 +1,11 @@
 package database.bankdb.dao.mybatis;
 import database.bankdb.dao.daointerfaces.IAccountTypeDAO;
-import database.bankdb.dao.mysql.AccountTypeDAO;
 import database.bankdb.models.AccountType;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import java.util.List;
 
-public class AccountTypeService implements IAccountTypeDAO {
+public class AccountTypeDAO implements IAccountTypeDAO {
 
     private static final SqlSessionFactory SESSION_FACTORY = MyBatisDaoFactory.getSqlSessionFactory();
 
@@ -32,17 +31,13 @@ public class AccountTypeService implements IAccountTypeDAO {
     @Override
     public void updateEntity(int id, AccountType entity) {
         try(SqlSession sqlSession = SESSION_FACTORY.openSession()){
-            IAccountTypeDAO accountTypeDAO = new AccountTypeDAO();
+            IAccountTypeDAO accountTypeDAO = new database.bankdb.dao.jdbc.AccountTypeDAO();
             accountTypeDAO.updateEntity(id,entity);
             sqlSession.commit();
         }
 
     }
 
-    @Override
-    public AccountType createEntity(AccountType entity) {
-        return null;
-    }
 
     @Override
     public void removeEntity(int id) {

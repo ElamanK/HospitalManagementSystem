@@ -1,6 +1,6 @@
-package database.bankdb.dao.mysql;
+package database.bankdb.dao.jdbc;
 import database.bankdb.connectionpool.ConnectionPool;
-import database.bankdb.dao.daointerfaces.ITransactionsDAO;
+import database.bankdb.dao.daointerfaces.ITransactionDAO;
 import database.bankdb.models.Transaction;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,10 +11,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TransactionsDAO implements ITransactionsDAO {
+public class TransactionDAO implements ITransactionDAO {
 
     ConnectionPool connectionPool = ConnectionPool.getInstance();
-    private static final Logger LOGGER = LogManager.getLogger(TransactionsDAO.class);
+    private static final Logger LOGGER = LogManager.getLogger(TransactionDAO.class);
 
     private final static String GET_TRANSACTION = "SELECT * FROM transactions where transaction_id=?";
     private final static String GET_TRANSACTION_AMOUNT_BY_ID = "SELECT transaction_amount FROM transactions where transaction_id=?";
@@ -28,7 +28,26 @@ public class TransactionsDAO implements ITransactionsDAO {
 
     @Override
     public void insertEntity(Transaction entity) {
-
+        Connection connection = ConnectionPool.getInstance().getConnection();
+        try (PreparedStatement statement = connection.prepareStatement(CREATE_TRANSACTION)) {
+            statement.setTimestamp(1, entity.getTransactionDate());
+            statement.setDouble(2, entity.getTransactionAmount());
+            statement.setDouble(3, entity.getNewBalance());
+            statement.setInt(4, entity.getAccountId());
+            statement.setInt(5, entity.getEmployeeId());
+            statement.setInt(6, entity.getTransactionTypeId());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            LOGGER.error(e);
+        }finally {
+            if (connection != null) {
+                try {
+                    connectionPool.releaseConnection(connection);
+                } catch (SQLException e) {
+                    LOGGER.error(e);
+                }
+            }
+        }
     }
 
     @Override
@@ -90,30 +109,6 @@ public class TransactionsDAO implements ITransactionsDAO {
         }
     }
 
-    @Override
-    public Transaction createEntity(Transaction entity) {
-        Connection connection = ConnectionPool.getInstance().getConnection();
-        try (PreparedStatement statement = connection.prepareStatement(CREATE_TRANSACTION)) {
-            statement.setTimestamp(1, entity.getTransactionDate());
-            statement.setDouble(2, entity.getTransactionAmount());
-            statement.setDouble(3, entity.getNewBalance());
-            statement.setInt(4, entity.getAccountId());
-            statement.setInt(5, entity.getEmployeeId());
-            statement.setInt(6, entity.getTransactionTypeId());
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            LOGGER.error(e);
-        }finally {
-            if (connection != null) {
-                try {
-                    connectionPool.releaseConnection(connection);
-                } catch (SQLException e) {
-                    LOGGER.error(e);
-                }
-            }
-        }
-        return entity;
-    }
 
     @Override
     public void removeEntity(int id) {

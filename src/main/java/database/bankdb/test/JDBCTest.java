@@ -1,41 +1,40 @@
 package database.bankdb.test;
-import database.bankdb.dao.mysql.*;
+import database.bankdb.dao.jdbc.*;
 import database.bankdb.models.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import java.sql.Date;
+
 import java.sql.Timestamp;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 
-public class TestDAO {
+public class JDBCTest {
 
-    private static final Logger LOGGER = LogManager.getLogger(TestDAO.class);
+    private static final Logger LOGGER = LogManager.getLogger(JDBCTest.class);
 
     public static void main(String[] args) {
 
-        AccountsDAO accountsDAO = new AccountsDAO();
+        AccountDAO accountDAO = new AccountDAO();
         LOGGER.info("Getting account by id");
-        LOGGER.info(accountsDAO.getEntityById(1));
+        LOGGER.info(accountDAO.getEntityById(1));
 
         LOGGER.info("Getting account current balance by id");
-        LOGGER.info(accountsDAO.getCurrentBalanceById(1));
+        LOGGER.info(accountDAO.getCurrentBalanceById(1));
 
         LOGGER.info("Getting all accounts as list");
-        LOGGER.info(accountsDAO.getAllEntities());
+        LOGGER.info(accountDAO.getAllEntities());
 
         Account accountToUpdate = new Account(3, 800, 2, 1);
         Account accountToCreate = new Account(4, 1500, 1, 2);
 
         LOGGER.info("UPDATING account");
-        accountsDAO.updateEntity(1, accountToUpdate);
+        accountDAO.updateEntity(1, accountToUpdate);
 
         LOGGER.info("INSERTING account");
-        accountsDAO.createEntity(accountToCreate);
+        accountDAO.insertEntity(accountToCreate);
 
         LOGGER.info("DELETING account");
-        accountsDAO.removeEntity(5);
+        accountDAO.removeEntity(5);
 
         AccountTypeDAO accountTypeDAO = new AccountTypeDAO();
         AccountType accountTypeToCreate = new AccountType(1,"NEW Checking account");
@@ -45,7 +44,7 @@ public class TestDAO {
         LOGGER.info(accountTypeDAO.getEntityById(1));
 
         LOGGER.info("Creating account type entity");
-        accountTypeDAO.createEntity(accountTypeToCreate);
+        accountTypeDAO.insertEntity(accountTypeToCreate);
 
         LOGGER.info("Updating account type entity");
         accountTypeDAO.updateEntity(1, accountTypeToUpdate);
@@ -66,7 +65,7 @@ public class TestDAO {
 
         LOGGER.info("Creating entity");
         AccountStatusType accountStatusTypeToCreate = new AccountStatusType("Pending");
-        accountStatusTypeDAO.createEntity(accountStatusTypeToCreate);
+        accountStatusTypeDAO.insertEntity(accountStatusTypeToCreate);
 
         LOGGER.info("Removing entity by id");
         accountStatusTypeDAO.removeEntity(4);
@@ -74,36 +73,36 @@ public class TestDAO {
         LOGGER.info("Getting all account status types");
         LOGGER.info(accountStatusTypeDAO.getAllEntities());
 
-        CustomersDAO customersDAO = new CustomersDAO();
+        CustomerDAO customerDAO = new CustomerDAO();
 
         LOGGER.info("Getting entity by id");
-        LOGGER.info(customersDAO.getEntityById(2));
+        LOGGER.info(customerDAO.getEntityById(2));
 
         LOGGER.info("Getting all customers information");
-        LOGGER.info(customersDAO.getAllEntities());
+        LOGGER.info(customerDAO.getAllEntities());
 
         LOGGER.info("Getting customer phone by customer id");
-        LOGGER.info(customersDAO.getPhoneById(3));
+        LOGGER.info(customerDAO.getPhoneById(3));
 
         LOGGER.info("Removing entity by id");
-        customersDAO.removeEntity(4);
+        customerDAO.removeEntity(4);
 
         LOGGER.info("Creating customer entity");
         Customer customerToCreate = new Customer(5,"Kevin","Chen","123 W Fargo ave",
                 "kev12@gmail.com","123123123","2342789");
-        customersDAO.createEntity(customerToCreate);
+        customerDAO.insertEntity(customerToCreate);
 
         LOGGER.info("Updating customer entity by id");
         Customer customerToUpdate = new Customer(2,"Sony","San","223 W Summerdale ave",
                 "san12@gmail.com","123123123","2346789");
-        customersDAO.updateEntity(1,customerToUpdate);
+        customerDAO.updateEntity(1,customerToUpdate);
 
         EmployeeDAO employeeDAO = new EmployeeDAO();
         Employee empToCreate = new Employee("Merry","J");
         Employee empToUpdate = new Employee("Kelly","M");
 
         LOGGER.info("Creating employee");
-        employeeDAO.createEntity(empToCreate);
+        employeeDAO.insertEntity(empToCreate);
 
         LOGGER.info("Getting entity by id");
         LOGGER.info(employeeDAO.getEntityById(5));
@@ -117,19 +116,17 @@ public class TestDAO {
         LOGGER.info("Getting all employees");
         LOGGER.info(employeeDAO.getAllEntities());
 
-        TransactionsDAO transactionsDAO = new TransactionsDAO();
+        TransactionDAO transactionsDAO = new TransactionDAO();
 
         LOGGER.info("Getting transaction amount by id");
         LOGGER.info(transactionsDAO.getTransactionAmountById(3));
 
         LOGGER.info("Creating transaction entity");
-//        LocalDate localDate = LocalDate.now();
-//        Date date = Date.valueOf(localDate);
         LocalDateTime now = LocalDateTime.now();
         Timestamp timestamp = Timestamp.valueOf(now);
 
         Transaction transactionToCreate = new Transaction(timestamp, 666, 1266, 1, 2, 2);
-        transactionsDAO.createEntity(transactionToCreate);
+        transactionsDAO.insertEntity(transactionToCreate);
 
         LOGGER.info("Removing entity by id");
         transactionsDAO.removeEntity(3);
@@ -150,7 +147,7 @@ public class TestDAO {
         LOGGER.info(transactionTypeDAO.getTransactionFeeAmountById(1));
 
         LOGGER.info("Creating entity");
-        TransactionType transactionTypeToCreate = new TransactionType("wired transaction","slow transaction",00.50);
-        transactionTypeDAO.createEntity(transactionTypeToCreate);
+        TransactionType transactionTypeToCreate = new TransactionType("test transaction","slow transaction",00.50);
+        transactionTypeDAO.insertEntity(transactionTypeToCreate);
  }
 }

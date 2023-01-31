@@ -1,4 +1,4 @@
-package database.bankdb.dao.mysql;
+package database.bankdb.dao.jdbc;
 
 import database.bankdb.connectionpool.ConnectionPool;
 import database.bankdb.dao.daointerfaces.IAccountStatusTypeDAO;
@@ -83,7 +83,21 @@ public class AccountStatusTypeDAO implements IAccountStatusTypeDAO {
 
     @Override
     public void insertEntity(AccountStatusType entity) {
-
+        Connection connection = ConnectionPool.getInstance().getConnection();
+        try(PreparedStatement statement = connection.prepareStatement(CREATE_ACCOUNT_STATUS_TYPE)) {
+            statement.setString(1, entity.getAccountStatusTypeDescription());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            LOGGER.error(e);
+        }finally {
+            if (connection != null) {
+                try {
+                    connectionPool.releaseConnection(connection);
+                } catch (SQLException e) {
+                    LOGGER.error(e);
+                }
+            }
+        }
     }
 
     @Override
@@ -135,25 +149,6 @@ public class AccountStatusTypeDAO implements IAccountStatusTypeDAO {
         }
     }
 
-    @Override
-    public AccountStatusType createEntity(AccountStatusType entity) {
-        Connection connection = ConnectionPool.getInstance().getConnection();
-        try(PreparedStatement statement = connection.prepareStatement(CREATE_ACCOUNT_STATUS_TYPE)) {
-            statement.setString(1, entity.getAccountStatusTypeDescription());
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            LOGGER.error(e);
-        }finally {
-            if (connection != null) {
-                try {
-                    connectionPool.releaseConnection(connection);
-                } catch (SQLException e) {
-                    LOGGER.error(e);
-                }
-            }
-        }
-        return entity;
-    }
 
     @Override
     public void removeEntity(int id) {

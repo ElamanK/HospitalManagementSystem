@@ -1,20 +1,19 @@
 package database.bankdb.dao.mybatis;
-import database.bankdb.dao.daointerfaces.ITransactionsDAO;
-import database.bankdb.dao.mysql.TransactionsDAO;
+import database.bankdb.dao.daointerfaces.ITransactionDAO;
 import database.bankdb.models.Transaction;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import java.util.List;
 
-public class TransactionService implements ITransactionsDAO {
+public class TransactionDAO implements ITransactionDAO {
 
     private static final SqlSessionFactory SESSION_FACTORY = MyBatisDaoFactory.getSqlSessionFactory();
 
     @Override
     public void insertEntity(Transaction entity) {
         try(SqlSession sqlSession = SESSION_FACTORY.openSession()){
-            ITransactionsDAO transactionsDAO = new TransactionsDAO();
+            ITransactionDAO transactionsDAO = new database.bankdb.dao.jdbc.TransactionDAO();
             transactionsDAO.insertEntity(entity);
             sqlSession.commit();
         }
@@ -24,7 +23,7 @@ public class TransactionService implements ITransactionsDAO {
     public Transaction getEntityById(int id) {
         Transaction transaction;
         try(SqlSession sqlSession = SESSION_FACTORY.openSession()){
-            ITransactionsDAO transactionsDAO = new TransactionsDAO();
+            ITransactionDAO transactionsDAO = new database.bankdb.dao.jdbc.TransactionDAO();
             transaction = transactionsDAO.getEntityById(id);
         }
         return transaction;
@@ -33,21 +32,17 @@ public class TransactionService implements ITransactionsDAO {
     @Override
     public void updateEntity(int id, Transaction entity) {
         try(SqlSession sqlSession = SESSION_FACTORY.openSession()){
-            ITransactionsDAO transactionsDAO = new TransactionsDAO();
+            ITransactionDAO transactionsDAO = new database.bankdb.dao.jdbc.TransactionDAO();
             transactionsDAO.updateEntity(id,entity);
             sqlSession.commit();
         }
     }
 
-    @Override
-    public Transaction createEntity(Transaction entity) {
-        return null;
-    }
 
     @Override
     public void removeEntity(int id) {
         try(SqlSession sqlSession = SESSION_FACTORY.openSession()){
-            ITransactionsDAO transactionsDAO = new TransactionsDAO();
+            ITransactionDAO transactionsDAO = new database.bankdb.dao.jdbc.TransactionDAO();
             transactionsDAO.removeEntity(id);
             sqlSession.commit();
         }
@@ -57,7 +52,7 @@ public class TransactionService implements ITransactionsDAO {
     public List<Transaction> getAllEntities() {
         List<Transaction> transactionsList;
         try(SqlSession sqlSession = SESSION_FACTORY.openSession()){
-            ITransactionsDAO transactionsDAO = new TransactionsDAO();
+            ITransactionDAO transactionsDAO = new database.bankdb.dao.jdbc.TransactionDAO();
             transactionsList = transactionsDAO.getAllEntities();
         }
         return transactionsList;
@@ -67,7 +62,7 @@ public class TransactionService implements ITransactionsDAO {
     public double getTransactionAmountById(int id) {
         double amount;
         try(SqlSession sqlSession = SESSION_FACTORY.openSession()){
-            ITransactionsDAO transactionsDAO = new TransactionsDAO();
+            ITransactionDAO transactionsDAO = new database.bankdb.dao.jdbc.TransactionDAO();
             amount = transactionsDAO.getTransactionAmountById(id);
         }
         return amount;

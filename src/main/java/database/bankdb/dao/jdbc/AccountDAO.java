@@ -1,6 +1,6 @@
-package database.bankdb.dao.mysql;
+package database.bankdb.dao.jdbc;
 import database.bankdb.connectionpool.ConnectionPool;
-import database.bankdb.dao.daointerfaces.IAccountsDAO;
+import database.bankdb.dao.daointerfaces.IAccountDAO;
 import database.bankdb.models.Account;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,10 +11,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AccountsDAO implements IAccountsDAO {
+public class AccountDAO implements IAccountDAO {
 
     ConnectionPool connectionPool = ConnectionPool.getInstance();
-    private static final Logger LOGGER = LogManager.getLogger(AccountsDAO.class);
+    private static final Logger LOGGER = LogManager.getLogger(AccountDAO.class);
 
     private final static String GET_ACCOUNT = "SELECT * FROM accounts where account_id=?";
     private final static String GET_CURRENT_BALANCE_BY_ID = "SELECT current_balance FROM accounts where account_id=?";
@@ -82,7 +82,23 @@ public class AccountsDAO implements IAccountsDAO {
 
     @Override
     public void insertEntity(Account entity) {
-
+        Connection connection = connectionPool.getConnection();
+        try (PreparedStatement statement = connection.prepareStatement(CREATE_ACCOUNT)) {
+            statement.setDouble(1, entity.getCurrentBalance());
+            statement.setInt(2, entity.getAccountTypeId());
+            statement.setInt(3, entity.getAccountStatusTypeId());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            LOGGER.error(e);
+        }  finally {
+            if (connection != null) {
+                try {
+                    connectionPool.releaseConnection(connection);
+                } catch (SQLException e) {
+                    LOGGER.error(e);
+                }
+            }
+        }
     }
 
     @Override
@@ -136,28 +152,6 @@ public class AccountsDAO implements IAccountsDAO {
                 }
             }
         }
-    }
-
-    @Override
-    public Account createEntity(Account entity) {
-        Connection connection = connectionPool.getConnection();
-        try (PreparedStatement statement = connection.prepareStatement(CREATE_ACCOUNT)) {
-            statement.setDouble(1, entity.getCurrentBalance());
-            statement.setInt(2, entity.getAccountTypeId());
-            statement.setInt(3, entity.getAccountStatusTypeId());
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            LOGGER.error(e);
-        }  finally {
-            if (connection != null) {
-                try {
-                    connectionPool.releaseConnection(connection);
-                } catch (SQLException e) {
-                    LOGGER.error(e);
-                }
-            }
-        }
-        return entity;
     }
 
     @Override

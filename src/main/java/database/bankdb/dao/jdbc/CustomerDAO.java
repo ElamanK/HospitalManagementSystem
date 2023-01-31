@@ -1,6 +1,6 @@
-package database.bankdb.dao.mysql;
+package database.bankdb.dao.jdbc;
 import database.bankdb.connectionpool.ConnectionPool;
-import database.bankdb.dao.daointerfaces.ICustomersDAO;
+import database.bankdb.dao.daointerfaces.ICustomerDAO;
 import database.bankdb.models.Customer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,10 +11,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomersDAO implements ICustomersDAO {
+public class CustomerDAO implements ICustomerDAO {
 
     ConnectionPool connectionPool = ConnectionPool.getInstance();
-    private static final Logger LOGGER = LogManager.getLogger(CustomersDAO.class);
+    private static final Logger LOGGER = LogManager.getLogger(CustomerDAO.class);
 
     private final static String GET_CUSTOMER = "SELECT * FROM customers where customer_id=?";
     private final static String GET_PHONE_BY_ID = "SELECT phone FROM customers where id=?";
@@ -28,7 +28,27 @@ public class CustomersDAO implements ICustomersDAO {
 
     @Override
     public void insertEntity(Customer entity) {
-
+        Connection connection = ConnectionPool.getInstance().getConnection();
+        try (PreparedStatement statement = connection.prepareStatement(CREATE_CUSTOMER)) {
+            statement.setInt(1, entity.getAccountId());
+            statement.setString(2, entity.getFirstname());
+            statement.setString(3, entity.getLastname());
+            statement.setString(4, entity.getAddress());
+            statement.setString(5, entity.getEmailAddress());
+            statement.setString(6, entity.getPhone());
+            statement.setString(7, entity.getSsn());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            LOGGER.error(e);
+        }finally {
+            if (connection != null) {
+                try {
+                    connectionPool.releaseConnection(connection);
+                } catch (SQLException e) {
+                    LOGGER.error(e);
+                }
+            }
+        }
     }
 
     @Override
@@ -92,31 +112,6 @@ public class CustomersDAO implements ICustomersDAO {
         }
     }
 
-    @Override
-    public Customer createEntity(Customer entity) {
-        Connection connection = ConnectionPool.getInstance().getConnection();
-        try (PreparedStatement statement = connection.prepareStatement(CREATE_CUSTOMER)) {
-            statement.setInt(1, entity.getAccountId());
-            statement.setString(2, entity.getFirstname());
-            statement.setString(3, entity.getLastname());
-            statement.setString(4, entity.getAddress());
-            statement.setString(5, entity.getEmailAddress());
-            statement.setString(6, entity.getPhone());
-            statement.setString(7, entity.getSsn());
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            LOGGER.error(e);
-        }finally {
-            if (connection != null) {
-                try {
-                    connectionPool.releaseConnection(connection);
-                } catch (SQLException e) {
-                    LOGGER.error(e);
-                }
-            }
-        }
-        return entity;
-    }
 
     @Override
     public void removeEntity(int id) {

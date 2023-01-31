@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "org/apache/ibatis/builder/xml/mybatis-3-mapper.dtd">
-<mapper namespace="database.bankdb.dao.daointerfaces.ICustomersDAO">
+<mapper namespace="database.bankdb.dao.daointerfaces.ICustomerDAO">
     <resultMap id="customerResultMap" type="Customer" autoMapping="false">
         <id column="customer_id" property="customer_id"/>
         <result column="account_id" property="accountId"/>

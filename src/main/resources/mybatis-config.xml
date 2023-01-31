@@ -35,6 +35,5 @@
         <mapper resource="db/mappers/transaction-type-mapper.xml"/>
         <mapper resource="db/mappers/account-type-mapper.xml"/>
         <mapper resource="db/mappers/transaction-mapper.xml"/>
-
     </mappers>
 </configuration>

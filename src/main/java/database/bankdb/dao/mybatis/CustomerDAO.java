@@ -1,11 +1,11 @@
 package database.bankdb.dao.mybatis;
-import database.bankdb.dao.daointerfaces.ICustomersDAO;
+import database.bankdb.dao.daointerfaces.ICustomerDAO;
 import database.bankdb.models.Customer;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import java.util.List;
 
-public class CustomerService implements ICustomersDAO {
+public class CustomerDAO implements ICustomerDAO {
 
     private static final SqlSessionFactory SESSION_FACTORY = MyBatisDaoFactory.getSqlSessionFactory();
 
@@ -13,7 +13,7 @@ public class CustomerService implements ICustomersDAO {
     @Override
     public void insertEntity(Customer entity) {
         try(SqlSession sqlSession = SESSION_FACTORY.openSession()) {
-            ICustomersDAO customersDAO = sqlSession.getMapper(ICustomersDAO.class);
+            ICustomerDAO customersDAO = sqlSession.getMapper(ICustomerDAO.class);
              customersDAO.insertEntity(entity);
             sqlSession.commit();
         }
@@ -23,7 +23,7 @@ public class CustomerService implements ICustomersDAO {
     public Customer getEntityById(int id) {
         Customer customer;
         try(SqlSession sqlSession = SESSION_FACTORY.openSession()) {
-            ICustomersDAO customersDAO = sqlSession.getMapper(ICustomersDAO.class);
+            ICustomerDAO customersDAO = sqlSession.getMapper(ICustomerDAO.class);
             customer = customersDAO.getEntityById(id);
         }
         return customer;
@@ -32,21 +32,17 @@ public class CustomerService implements ICustomersDAO {
     @Override
     public void updateEntity(int id, Customer entity) {
         try(SqlSession sqlSession = SESSION_FACTORY.openSession()) {
-            ICustomersDAO customersDAO = sqlSession.getMapper(ICustomersDAO.class);
+            ICustomerDAO customersDAO = sqlSession.getMapper(ICustomerDAO.class);
             customersDAO.updateEntity(id,entity);
             sqlSession.commit();
         }
     }
 
-    @Override
-    public Customer createEntity(Customer entity) {
-        return null;
-    }
 
     @Override
     public void removeEntity(int id) {
         try(SqlSession sqlSession = SESSION_FACTORY.openSession()) {
-            ICustomersDAO customersDAO = sqlSession.getMapper(ICustomersDAO.class);
+            ICustomerDAO customersDAO = sqlSession.getMapper(ICustomerDAO.class);
             customersDAO.removeEntity(id);
             sqlSession.commit();
         }
@@ -56,7 +52,7 @@ public class CustomerService implements ICustomersDAO {
     public List<Customer> getAllEntities() {
         List<Customer> customers;
         try(SqlSession sqlSession = SESSION_FACTORY.openSession()) {
-            ICustomersDAO customersDAO = sqlSession.getMapper(ICustomersDAO.class);
+            ICustomerDAO customersDAO = sqlSession.getMapper(ICustomerDAO.class);
             customers = customersDAO.getAllEntities();
         }
         return customers;
@@ -66,7 +62,7 @@ public class CustomerService implements ICustomersDAO {
     public String getPhoneById(int id) {
         Customer customer;
         try(SqlSession sqlSession = SESSION_FACTORY.openSession()) {
-            ICustomersDAO customersDAO = sqlSession.getMapper(ICustomersDAO.class);
+            ICustomerDAO customersDAO = sqlSession.getMapper(ICustomerDAO.class);
             customer = customersDAO.getEntityById(id);
         }
         return customer.getPhone();

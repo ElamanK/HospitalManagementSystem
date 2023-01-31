@@ -1,10 +1,9 @@
-package database.bankdb.dao.mysql;
+package database.bankdb.dao.jdbc;
 import database.bankdb.connectionpool.ConnectionPool;
-import database.bankdb.dao.daointerfaces.IAccountTypeDAO;
-import database.bankdb.models.AccountType;
+import database.bankdb.dao.daointerfaces.IEmployeeDAO;
+import database.bankdb.models.Employee;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,35 +11,51 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AccountTypeDAO implements IAccountTypeDAO {
+public class EmployeeDAO implements IEmployeeDAO {
 
     ConnectionPool connectionPool = ConnectionPool.getInstance();
-    private static final Logger LOGGER = LogManager.getLogger(AccountTypeDAO.class);
+    private static final Logger LOGGER = LogManager.getLogger(EmployeeDAO.class);
 
-    private final static String GET_ACCOUNT_TYPE = "SELECT * FROM account_type where id=?";
-    private final static String UPDATE_ACCOUNT_TYPE_DESCRIPTION = "UPDATE account_type SET account_type_description = ?" +
-            "WHERE id = ?";
-    private final static String CREATE_ACCOUNT_TYPE = "INSERT INTO account_type (account_type_description) VALUES (?)";
-    private final static String REMOVE_ACCOUNT_TYPE = "DELETE FROM account_type where id = ?";
-    private final static String GET_ALL_ACCOUNT_TYPE = "SELECT * FROM account_type";
+    private static final String GET_EMPLOYEE = "SELECT * FROM employees WHERE employee_id = ?";
+    private final static String GET_ALL_EMPLOYEES = "SELECT * FROM employees";
+    private final static String CREATE_EMPLOYEE = "INSERT INTO employees (firstname, lastname) " +
+            "VALUES (?,?)";
+    private final static String REMOVE_EMPLOYEE = "DELETE FROM employees WHERE employee_id = ?";
+    private final static String UPDATE_EMPLOYEE = "UPDATE employees SET firstname=?, lastname = ? WHERE employee_id = ?";
 
 
     @Override
-    public void insertEntity(AccountType entity) {
-
+    public void insertEntity(Employee entity) {
+        Connection connection = ConnectionPool.getInstance().getConnection();
+        try (PreparedStatement statement = connection.prepareStatement(CREATE_EMPLOYEE)) {
+            statement.setString(1, entity.getFirstname());
+            statement.setString(2, entity.getLastname());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            LOGGER.error(e);
+        }finally {
+            if (connection != null) {
+                try {
+                    connectionPool.releaseConnection(connection);
+                } catch (SQLException e) {
+                    LOGGER.error(e);
+                }
+            }
+        }
     }
 
     @Override
-    public AccountType getEntityById(int id) {
+    public Employee getEntityById(int id) {
         Connection connection = ConnectionPool.getInstance().getConnection();
-        AccountType accountType = null;
-        try (PreparedStatement ps = connection.prepareStatement(GET_ACCOUNT_TYPE)) {
+        Employee employee = null;
+        try (PreparedStatement ps = connection.prepareStatement(GET_EMPLOYEE)) {
             ps.setInt(1, id);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    accountType = new AccountType();
-                    accountType.setAccountTypeId(rs.getInt("id"));
-                    accountType.setAccountTypeDescription(rs.getString("account_type_description"));
+                    employee = new Employee();
+                    employee.setId(rs.getInt("employee_id"));
+                    employee.setFirstname(rs.getString("firstname"));
+                    employee.setLastname(rs.getString("lastname"));
                 }
             } catch (SQLException e) {
                 LOGGER.error(e);
@@ -56,15 +71,16 @@ public class AccountTypeDAO implements IAccountTypeDAO {
                 }
             }
         }
-        return accountType;
+        return employee;
     }
 
     @Override
-    public void updateEntity(int id, AccountType entity) {
+    public void updateEntity(int id, Employee entity) {
         Connection connection = ConnectionPool.getInstance().getConnection();
-        try (PreparedStatement statement = connection.prepareStatement(UPDATE_ACCOUNT_TYPE_DESCRIPTION)) {
-            statement.setString(1, entity.getAccountTypeDescription());
-            statement.setInt(2, id);
+        try (PreparedStatement statement = connection.prepareStatement(UPDATE_EMPLOYEE)) {
+            statement.setString(1, entity.getFirstname());
+            statement.setString(2, entity.getLastname());
+            statement.setInt(3, id);
             statement.executeUpdate();
         } catch (SQLException e) {
             LOGGER.error(e);
@@ -79,30 +95,11 @@ public class AccountTypeDAO implements IAccountTypeDAO {
         }
     }
 
-    @Override
-    public AccountType createEntity(AccountType entity) {
-        Connection connection = ConnectionPool.getInstance().getConnection();
-        try (PreparedStatement statement = connection.prepareStatement(CREATE_ACCOUNT_TYPE)) {
-            statement.setString(1, entity.getAccountTypeDescription());
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            LOGGER.error(e);
-        }finally {
-            if (connection != null) {
-                try {
-                    connectionPool.releaseConnection(connection);
-                } catch (SQLException e) {
-                    LOGGER.error(e);
-                }
-            }
-        }
-        return entity;
-    }
 
     @Override
     public void removeEntity(int id) {
         Connection connection = ConnectionPool.getInstance().getConnection();
-        try (PreparedStatement statement = connection.prepareStatement(REMOVE_ACCOUNT_TYPE)) {
+        try (PreparedStatement statement = connection.prepareStatement(REMOVE_EMPLOYEE)) {
             statement.setInt(1, id);
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -119,16 +116,17 @@ public class AccountTypeDAO implements IAccountTypeDAO {
     }
 
     @Override
-    public List<AccountType> getAllEntities() {
+    public List<Employee> getAllEntities() {
         Connection connection = ConnectionPool.getInstance().getConnection();
-        List<AccountType> listOfAccountTypes = new ArrayList<>();
-        try (PreparedStatement ps = connection.prepareStatement(GET_ALL_ACCOUNT_TYPE);
+        List<Employee> listOfEmployees = new ArrayList<>();
+        try (PreparedStatement ps = connection.prepareStatement(GET_ALL_EMPLOYEES);
              ResultSet rs = ps.executeQuery()) {
             while (rs.next()) {
-                AccountType accountType = new AccountType();
-                accountType.setAccountTypeId(rs.getInt("id"));
-                accountType.setAccountTypeDescription(rs.getString("account_type_description"));
-                listOfAccountTypes.add(accountType);
+                Employee employee = new Employee();
+                employee.setId(rs.getInt("employee_id"));
+                employee.setFirstname(rs.getString("firstname"));
+                employee.setLastname(rs.getString("lastname"));
+                listOfEmployees.add(employee);
             }
         } catch (SQLException e) {
             LOGGER.error(e);
@@ -141,6 +139,8 @@ public class AccountTypeDAO implements IAccountTypeDAO {
                 }
             }
         }
-        return listOfAccountTypes;
+        return listOfEmployees;
     }
+
+
 }
