@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bank>
+    <customers>
+        <customer id= "1">
+            <accountId>12345</accountId>
+            <firstname>John</firstname>
+            <lastname>Wick</lastname>
+            <address>122 Wabash St</address>
+            <emailAddress>johnw@gmail.com</emailAddress>
+            <phone>444-555-6666</phone>
+            <ssn>123-45-6789</ssn>
+        </customer>
+        <customer id = "2">
+            <accountId>54321</accountId>
+            <firstname>Mellisa</firstname>
+            <lastname>Celery</lastname>
+            <address>345 Wabash St</address>
+            <emailAddress>mail@example.com</emailAddress>
+            <phone>222-888-9999</phone>
+            <ssn>123-45-3456</ssn>
+        </customer>
+    </customers>
+    <employees>
+        <employee >
+            <id>1</id>
+            <firstname>John</firstname>
+            <lastname>Martin</lastname>
+        </employee>
+        <employee >
+            <id>2</id>
+            <firstname>Peter</firstname>
+            <lastname>Baker</lastname>
+        </employee>
+    </employees>
+    <transactions>
+        <transaction id = "1">
+            <date>2023-01-28 19:30:58.894</date>
+            <transaction-amount>200.00</transaction-amount>
+            <new-balance>1000.00</new-balance>
+            <account-id>1</account-id>
+            <employee-id>2</employee-id>
+            <transaction-type-id>2</transaction-type-id>
+        </transaction>
+        <transaction id = "2">
+            <date>2022-01-25 19:30:58.894</date>
+            <transaction-amount>500.00</transaction-amount>
+            <new-balance>1200.00</new-balance>
+            <account-id>2</account-id>
+            <employee-id>1</employee-id>
+            <transaction-type-id>1</transaction-type-id>
+        </transaction>
+    </transactions>
+    <account-types>
+        <account-type id="1">
+        <account-type-description>checking</account-type-description>
+        </account-type>
+        <account-type id="2">
+        <account-type-description>savings</account-type-description>
+        </account-type>
+    </account-types>
+</bank>

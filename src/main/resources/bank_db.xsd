@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="bank">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="customers">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="customer" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="accountId" type="xs:string"/>
+                                        <xs:element name="firstname" type="xs:string"/>
+                                        <xs:element name="lastname" type="xs:string"/>
+                                        <xs:element name="address" type="xs:string"/>
+                                        <xs:element name="emailAddress" type="xs:string"/>
+                                        <xs:element name="phone" type="xs:string"/>
+                                        <xs:element name="ssn" type="xs:string"/>
+                                    </xs:sequence>
+                                    <xs:attribute name="id" type="xs:integer"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="employees">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="employee" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="id" type="xs:integer"/>
+                                        <xs:element name="firstname" type="xs:string"/>
+                                        <xs:element name="lastname" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="transactions">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="transaction" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="date" type="xs:date"/>
+                                        <xs:element name="transaction-amount" type="xs:double"/>
+                                        <xs:element name="new-balance" type="xs:double"/>
+                                        <xs:element name="account-id" type="xs:integer"/>
+                                        <xs:element name="employee-id" type="xs:integer"/>
+                                        <xs:element name="transaction-type-id" type="xs:integer"/>
+                                    </xs:sequence>
+                                    <xs:attribute name="id" type="xs:integer"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="account-types">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="account-type" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="account-type-description" type="xs:string"/>
+                                    </xs:sequence>
+                                    <xs:attribute name="id" type="xs:integer"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

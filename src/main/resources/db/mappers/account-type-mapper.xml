@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "org/apache/ibatis/builder/xml/mybatis-3-mapper.dtd">
+<mapper namespace="database.bankdb.dao.daointerfaces.IAccountTypeDAO">
+    <resultMap id="accountTypeResultMap" type="AccountType" autoMapping="false">
+        <id column="account_type_id" property="accountTypeId"/>
+        <result column="account_type_description" property="accountTypeDescription"/>
+    </resultMap>
+    <select id="getEntityById" parameterType="int" resultMap="accountTypeResultMap">
+        SELECT * FROM account_type
+        WHERE id = #{accountTypeId};
+    </select>
+    <insert id="createEntity" keyProperty="account_type_id">
+        INSERT INTO account_type (account_type_description)
+        VALUES (#{accountTypeDescription});
+    </insert>
+    <select id="getAllEntities" resultMap="accountTypeResultMap">
+        SELECT * FROM account_type;
+    </select>
+    <delete id = "removeEntity" parameterType = "int">
+        DELETE from account_type WHERE id = #{accountTypeId};
+    </delete>
+    <update id="updateEntity" parameterType = "AccountType">
+        UPDATE account_type SET
+        account_type_description = #{accountTypeDescription}
+        WHERE id = #{accountTypeId};
+    </update>
+</mapper>

@@ -1,7 +1,7 @@
 package lambda;
-import lambda.generic_lambda.IFindItem;
-import lambda.generic_lambda.ISumArray;
-import lambda.generic_lambda.IValue;
+import lambda.genericlambda.IFindItem;
+import lambda.genericlambda.ISumArray;
+import lambda.genericlambda.IValue;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import java.util.Arrays;

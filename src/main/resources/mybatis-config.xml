@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="db.properties"/>
+    <typeAliases>
+        <typeAlias alias="Customer"
+                   type="database.bankdb.models.Customer"/>
+        <typeAlias alias="Employee"
+                   type="database.bankdb.models.Employee"/>
+        <typeAlias alias="TransactionType"
+                   type="database.bankdb.models.TransactionType"/>
+        <typeAlias alias="AccountType"
+                   type="database.bankdb.models.AccountType"/>
+        <typeAlias alias="Transaction"
+                   type="database.bankdb.models.Transaction"/>
+    </typeAliases>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC">
+                <property name="defaultReadOnly" value="false"/>
+            </transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${user}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="db/mappers/customer-mapper.xml"/>
+        <mapper resource="db/mappers/employee-mapper.xml"/>
+        <mapper resource="db/mappers/transaction-type-mapper.xml"/>
+        <mapper resource="db/mappers/account-type-mapper.xml"/>
+        <mapper resource="db/mappers/transaction-mapper.xml"/>
+
+    </mappers>
+</configuration>
