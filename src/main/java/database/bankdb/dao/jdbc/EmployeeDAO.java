@@ -75,12 +75,12 @@ public class EmployeeDAO implements IEmployeeDAO {
     }
 
     @Override
-    public void updateEntity(int id, Employee entity) {
+    public void updateEntity(Employee entity) {
         Connection connection = ConnectionPool.getInstance().getConnection();
         try (PreparedStatement statement = connection.prepareStatement(UPDATE_EMPLOYEE)) {
             statement.setString(1, entity.getFirstname());
             statement.setString(2, entity.getLastname());
-            statement.setInt(3, id);
+            statement.setInt(3, entity.getId());
             statement.executeUpdate();
         } catch (SQLException e) {
             LOGGER.error(e);

@@ -30,10 +30,10 @@ public class CustomerDAO implements ICustomerDAO {
     }
 
     @Override
-    public void updateEntity(int id, Customer entity) {
+    public void updateEntity(Customer entity) {
         try(SqlSession sqlSession = SESSION_FACTORY.openSession()) {
             ICustomerDAO customersDAO = sqlSession.getMapper(ICustomerDAO.class);
-            customersDAO.updateEntity(id,entity);
+            customersDAO.updateEntity(entity);
             sqlSession.commit();
         }
     }

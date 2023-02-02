@@ -21,14 +21,15 @@ public class MyBatisTest {
 
         String phoneById = customerDAO.getPhoneById(2);
         LOGGER.info(phoneById);
-        Customer customer = new Customer(15,"XXX","YYY","123CCC","mail@mail.com","123123123","56765875346");
+        Customer customerForInsert = new Customer(15,"XXX","YYY","123CCC","mail@mail.com","123123123","56765875346");
+        Customer customerForUpdate = new Customer(1,15,"XXX","YYY","123CCC","mail@mail.com","123123123","56765875346");
         LOGGER.info("Removing entity here ");
         customerDAO.removeEntity(9);
         LOGGER.info("List of customers "+ customerDAO.getAllEntities());
         LOGGER.info("Updating customer");
-       // customerDAO.updateEntity(15,customer);
+        customerDAO.updateEntity(customerForUpdate);
         LOGGER.info("Creating entity");
-       // customerDAO.insertEntity(customer);
+        customerDAO.insertEntity(customerForInsert);
 
 
         EmployeeDAO employeeDAO = new EmployeeDAO();
@@ -36,13 +37,12 @@ public class MyBatisTest {
         LOGGER.info(employeeDAO.getEntityById(1));
         LOGGER.info("Removing employee");
         employeeDAO.removeEntity(10);
-        Employee employee = new Employee("aaa","bbb");
-       // employeeDAO.insertEntity(employee);
-       // employeeDAO.updateEntity(6,employee);
+        Employee employeeForInsert = new Employee("aaa","bbb");
+        Employee employeeForUpdate = new Employee(1,"aaa","bbb");
+        employeeDAO.insertEntity(employeeForInsert);
+        employeeDAO.updateEntity(employeeForUpdate);
 
         TransactionTypeDAO transactionTypeDAO = new TransactionTypeDAO();
-        TransactionType transactionTypeForUpdate = new TransactionType("test","test",0.99);
-        transactionTypeDAO.updateEntity(8,transactionTypeForUpdate);
         LOGGER.info("Getting transaction amount by id");
         LOGGER.info(transactionTypeDAO.getTransactionFeeAmountById(1));
 

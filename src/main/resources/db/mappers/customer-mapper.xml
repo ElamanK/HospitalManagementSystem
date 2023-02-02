@@ -3,7 +3,7 @@
         "org/apache/ibatis/builder/xml/mybatis-3-mapper.dtd">
 <mapper namespace="database.bankdb.dao.daointerfaces.ICustomerDAO">
     <resultMap id="customerResultMap" type="Customer" autoMapping="false">
-        <id column="customer_id" property="customer_id"/>
+        <id column="customer_id" property="customerId"/>
         <result column="account_id" property="accountId"/>
         <result column="firstname" property="firstname"/>
         <result column="lastname" property="lastname"/>
@@ -14,11 +14,11 @@
     </resultMap>
     <select id="getEntityById" parameterType="int" resultMap="customerResultMap">
         SELECT * FROM customers
-        WHERE customer_id = #{customer_id};
+        WHERE customer_id = #{customerId};
     </select>
     <select id="getPhoneById" parameterType="String" resultMap="customerResultMap">
         SELECT phone FROM customers
-        WHERE customer_id = #{customer_id};
+        WHERE customer_id = #{customerId};
     </select>
     <insert id="insertEntity" keyProperty="customer_id">
         INSERT INTO customers (account_id, firstname, lastname, address, email_address, phone, ssn)
@@ -28,7 +28,7 @@
         SELECT * FROM customers;
     </select>
     <delete id = "removeEntity" parameterType = "int">
-        DELETE from customers WHERE customer_id = #{customer_id};
+        DELETE from customers WHERE customer_id = #{customerId};
     </delete>
     <update id="updateEntity" parameterType = "Customer">
         UPDATE customers SET
@@ -39,6 +39,6 @@
         email_address = #{emailAddress},
         phone = #{phone},
         ssn = #{ssn}
-        WHERE customer_id = #{customer_id};
+        WHERE customer_id = #{customerId};
     </update>
 </mapper>

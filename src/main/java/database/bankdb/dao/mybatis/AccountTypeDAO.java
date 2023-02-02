@@ -29,10 +29,10 @@ public class AccountTypeDAO implements IAccountTypeDAO {
     }
 
     @Override
-    public void updateEntity(int id, AccountType entity) {
+    public void updateEntity(AccountType entity) {
         try(SqlSession sqlSession = SESSION_FACTORY.openSession()){
             IAccountTypeDAO accountTypeDAO = new database.bankdb.dao.jdbc.AccountTypeDAO();
-            accountTypeDAO.updateEntity(id,entity);
+            accountTypeDAO.updateEntity(entity);
             sqlSession.commit();
         }
 

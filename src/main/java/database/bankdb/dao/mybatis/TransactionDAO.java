@@ -30,10 +30,10 @@ public class TransactionDAO implements ITransactionDAO {
     }
 
     @Override
-    public void updateEntity(int id, Transaction entity) {
+    public void updateEntity(Transaction entity) {
         try(SqlSession sqlSession = SESSION_FACTORY.openSession()){
             ITransactionDAO transactionsDAO = new database.bankdb.dao.jdbc.TransactionDAO();
-            transactionsDAO.updateEntity(id,entity);
+            transactionsDAO.updateEntity(entity);
             sqlSession.commit();
         }
     }

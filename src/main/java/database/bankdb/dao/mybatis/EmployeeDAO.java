@@ -21,10 +21,10 @@ public class EmployeeDAO implements IEmployeeDAO {
     }
 
     @Override
-    public void updateEntity(int id, Employee entity) {
+    public void updateEntity(Employee entity) {
         try (SqlSession sqlSession = SESSION_FACTORY.openSession()) {
             IEmployeeDAO employeesDAO = sqlSession.getMapper(IEmployeeDAO.class);
-            employeesDAO.updateEntity(id, entity);
+            employeesDAO.updateEntity(entity);
             sqlSession.commit();
         }
     }

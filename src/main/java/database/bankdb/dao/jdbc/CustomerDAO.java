@@ -60,7 +60,7 @@ public class CustomerDAO implements ICustomerDAO {
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
                     customer = new Customer();
-                    customer.setCustomer_id(rs.getInt("customer_id"));
+                    customer.setCustomerId(rs.getInt("customer_id"));
                     customer.setAccountId(rs.getInt("account_id"));
                     customer.setFirstname(rs.getString("firstname"));
                     customer.setLastname(rs.getString("lastname"));
@@ -87,7 +87,7 @@ public class CustomerDAO implements ICustomerDAO {
     }
 
     @Override
-    public void updateEntity(int id, Customer entity) {
+    public void updateEntity(Customer entity) {
         Connection connection = ConnectionPool.getInstance().getConnection();
         try (PreparedStatement statement = connection.prepareStatement(UPDATE_CUSTOMER_BY_ID)) {
             statement.setInt(1, entity.getAccountId());
@@ -97,7 +97,7 @@ public class CustomerDAO implements ICustomerDAO {
             statement.setString(5, entity.getEmailAddress());
             statement.setString(6, entity.getPhone());
             statement.setString(7, entity.getSsn());
-            statement.setInt(8, id);
+            statement.setInt(8, entity.getCustomerId());
             statement.executeUpdate();
         } catch (SQLException e) {
             LOGGER.error(e);
@@ -141,7 +141,7 @@ public class CustomerDAO implements ICustomerDAO {
              ResultSet rs = ps.executeQuery()) {
             while (rs.next()) {
                 Customer customer = new Customer();
-                customer.setCustomer_id(rs.getInt("customer_id"));
+                customer.setCustomerId(rs.getInt("customer_id"));
                 customer.setAccountId(rs.getInt("account_id"));
                 customer.setFirstname(rs.getString("firstname"));
                 customer.setLastname(rs.getString("lastname"));

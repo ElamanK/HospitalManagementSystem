@@ -24,7 +24,7 @@
     <update id="updateEntity" parameterType = "Employee">
         UPDATE employees SET
         firstname = #{firstname},
-        lastname = #{lastname},
+        lastname = #{lastname}
         WHERE employee_id = #{id};
     </update>
 </mapper>

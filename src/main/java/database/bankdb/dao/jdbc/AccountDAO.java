@@ -133,13 +133,13 @@ public class AccountDAO implements IAccountDAO {
     }
 
     @Override
-    public void updateEntity(int id, Account entity) {
+    public void updateEntity(Account entity) {
         Connection connection = connectionPool.getConnection();
         try (PreparedStatement statement = connection.prepareStatement(UPDATE_ACCOUNT)) {
             statement.setDouble(1, entity.getCurrentBalance());
             statement.setInt(2, entity.getAccountTypeId());
             statement.setInt(3, entity.getAccountStatusTypeId());
-            statement.setInt(4, id);
+            statement.setInt(4, entity.getAccountId());
             statement.executeUpdate();
         } catch (SQLException e) {
             LOGGER.error(e);

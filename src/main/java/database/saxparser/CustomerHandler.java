@@ -23,7 +23,7 @@ public class CustomerHandler extends DefaultHandler {
         currentElement = qName;
         if (qName.equalsIgnoreCase("customer")) {
             String id = attributes.getValue("id");
-            customer.setCustomer_id(Integer.parseInt(id));
+            customer.setCustomerId(Integer.parseInt(id));
         }
         data = new StringBuilder();
     }

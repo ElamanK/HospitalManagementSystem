@@ -74,11 +74,11 @@ public class AccountTypeDAO implements IAccountTypeDAO {
     }
 
     @Override
-    public void updateEntity(int id, AccountType entity) {
+    public void updateEntity(AccountType entity) {
         Connection connection = ConnectionPool.getInstance().getConnection();
         try (PreparedStatement statement = connection.prepareStatement(UPDATE_ACCOUNT_TYPE_DESCRIPTION)) {
             statement.setString(1, entity.getAccountTypeDescription());
-            statement.setInt(2, id);
+            statement.setInt(2, entity.getAccountTypeId());
             statement.executeUpdate();
         } catch (SQLException e) {
             LOGGER.error(e);

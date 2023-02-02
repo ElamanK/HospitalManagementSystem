@@ -85,7 +85,7 @@ public class TransactionDAO implements ITransactionDAO {
     }
 
     @Override
-    public void updateEntity(int id, Transaction entity) {
+    public void updateEntity(Transaction entity) {
         Connection connection = ConnectionPool.getInstance().getConnection();
         try (PreparedStatement statement = connection.prepareStatement(UPDATE_TRANSACTION_BY_ID)) {
             statement.setTimestamp(1, entity.getTransactionDate());
@@ -94,7 +94,7 @@ public class TransactionDAO implements ITransactionDAO {
             statement.setInt(4, entity.getAccountId());
             statement.setInt(5, entity.getEmployeeId());
             statement.setInt(6, entity.getTransactionTypeId());
-            statement.setInt(7, id);
+            statement.setInt(7, entity.getTransactionId());
             statement.executeUpdate();
         } catch (SQLException e) {
             LOGGER.error(e);

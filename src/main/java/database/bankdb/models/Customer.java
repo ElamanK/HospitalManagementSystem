@@ -2,7 +2,7 @@ package database.bankdb.models;
 
 public class Customer {
 
-    private int customer_id;
+    private int customerId;
     private int accountId;
     private String firstname;
     private String lastname;
@@ -23,8 +23,8 @@ public class Customer {
         this.ssn = ssn;
     }
 
-    public Customer(int customer_id, int accountId, String firstname, String lastname, String address, String emailAddress, String phone, String ssn) {
-        this.customer_id = customer_id;
+    public Customer(int customerId, int accountId, String firstname, String lastname, String address, String emailAddress, String phone, String ssn) {
+        this.customerId = customerId;
         this.accountId = accountId;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -36,7 +36,7 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "id: "+this.customer_id
+        return "id: "+this.customerId
                 +"\n"+"account id: "+this.accountId
                 +"\n"+"firstname: "+this.firstname
                 +"\n"+"lastname: "+this.lastname
@@ -46,12 +46,12 @@ public class Customer {
                 +"\n"+"ssn: "+this.ssn;
     }
 
-    public int getCustomer_id() {
-        return customer_id;
+    public int getCustomerId() {
+        return customerId;
     }
 
-    public void setCustomer_id(int customer_id) {
-        this.customer_id = customer_id;
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 
     public int getAccountId() {

@@ -130,11 +130,11 @@ public class AccountStatusTypeDAO implements IAccountStatusTypeDAO {
     }
 
     @Override
-    public void updateEntity(int id, AccountStatusType entity) {
+    public void updateEntity(AccountStatusType entity) {
         Connection connection = ConnectionPool.getInstance().getConnection();
         try (PreparedStatement statement = connection.prepareStatement(UPDATE_ACCOUNT_STATUS_TYPE_DESCRIPTION)) {
             statement.setString(1, entity.getAccountStatusTypeDescription());
-            statement.setInt(2, id);
+            statement.setInt(2, entity.getAccountStatusTypeId());
             statement.executeUpdate();
         } catch (SQLException e) {
             LOGGER.error(e);

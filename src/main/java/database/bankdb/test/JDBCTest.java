@@ -28,7 +28,7 @@ public class JDBCTest {
         Account accountToCreate = new Account(4, 1500, 1, 2);
 
         LOGGER.info("UPDATING account");
-        accountDAO.updateEntity(1, accountToUpdate);
+        accountDAO.updateEntity(accountToUpdate);
 
         LOGGER.info("INSERTING account");
         accountDAO.insertEntity(accountToCreate);
@@ -47,7 +47,7 @@ public class JDBCTest {
         accountTypeDAO.insertEntity(accountTypeToCreate);
 
         LOGGER.info("Updating account type entity");
-        accountTypeDAO.updateEntity(1, accountTypeToUpdate);
+        accountTypeDAO.updateEntity(accountTypeToUpdate);
 
         LOGGER.info("Getting all account types");
         LOGGER.info(accountTypeDAO.getAllEntities());
@@ -93,13 +93,13 @@ public class JDBCTest {
         customerDAO.insertEntity(customerToCreate);
 
         LOGGER.info("Updating customer entity by id");
-        Customer customerToUpdate = new Customer(2,"Sony","San","223 W Summerdale ave",
+        Customer customerToUpdate = new Customer(1,2,"Sony","San","223 W Summerdale ave",
                 "san12@gmail.com","123123123","2346789");
-        customerDAO.updateEntity(1,customerToUpdate);
+        customerDAO.updateEntity(customerToUpdate);
 
         EmployeeDAO employeeDAO = new EmployeeDAO();
         Employee empToCreate = new Employee("Merry","J");
-        Employee empToUpdate = new Employee("Kelly","M");
+        Employee empToUpdate = new Employee(1,"Kelly","M");
 
         LOGGER.info("Creating employee");
         employeeDAO.insertEntity(empToCreate);
@@ -108,7 +108,7 @@ public class JDBCTest {
         LOGGER.info(employeeDAO.getEntityById(5));
 
         LOGGER.info("Updating entity by id");
-        employeeDAO.updateEntity(3,empToUpdate);
+        employeeDAO.updateEntity(empToUpdate);
 
         LOGGER.info("Removing entity by id");
         employeeDAO.removeEntity(5);
@@ -132,8 +132,8 @@ public class JDBCTest {
         transactionsDAO.removeEntity(3);
 
         LOGGER.info("Removing entity by id");
-        Transaction transactionToUpdate = new Transaction(timestamp, 123, 567, 1, 2, 2);
-        transactionsDAO.updateEntity(1, transactionToUpdate);
+        Transaction transactionToUpdate = new Transaction(1,timestamp, 123, 567, 1, 2, 2);
+        transactionsDAO.updateEntity(transactionToUpdate);
 
         LOGGER.info("Getting all transactions");
         LOGGER.info(transactionsDAO.getAllEntities());

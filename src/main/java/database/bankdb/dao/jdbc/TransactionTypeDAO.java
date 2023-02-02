@@ -76,13 +76,13 @@ public class TransactionTypeDAO implements ITransactionTypeDAO {
     }
 
     @Override
-    public void updateEntity(int id, TransactionType entity) {
+    public void updateEntity(TransactionType entity) {
         Connection connection = ConnectionPool.getInstance().getConnection();
         try (PreparedStatement statement = connection.prepareStatement(UPDATE_TRANSACTION_TYPE)) {
             statement.setString(1, entity.getTransactionTypeName());
             statement.setString(2, entity.getTransactionTypeDescription());
             statement.setDouble(3, entity.getFee());
-            statement.setInt(4, id);
+            statement.setInt(4, entity.getTransactionTypeId());
             statement.executeUpdate();
         } catch (SQLException e) {
             LOGGER.error(e);
