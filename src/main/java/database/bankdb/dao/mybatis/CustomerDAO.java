@@ -3,6 +3,7 @@ import database.bankdb.dao.daointerfaces.ICustomerDAO;
 import database.bankdb.models.Customer;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+
 import java.util.List;
 
 public class CustomerDAO implements ICustomerDAO {
@@ -21,6 +22,7 @@ public class CustomerDAO implements ICustomerDAO {
 
     @Override
     public Customer getEntityById(int id) {
+        System.out.println("Customer from MyBatis");
         Customer customer;
         try(SqlSession sqlSession = SESSION_FACTORY.openSession()) {
             ICustomerDAO customersDAO = sqlSession.getMapper(ICustomerDAO.class);

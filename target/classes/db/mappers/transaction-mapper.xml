@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "org/apache/ibatis/builder/xml/mybatis-3-mapper.dtd">
+<mapper namespace="database.bankdb.dao.daointerfaces.ITransactionDAO">
+    <resultMap id="transactionResultMap" type="Transaction" autoMapping="false">
+        <id column="transaction_id" property="transactionId"/>
+        <result column="transaction_date" property="transactionDate"/>
+        <result column="transaction_amount" property="transactionAmount"/>
+        <result column="new_balance" property="newBalance"/>
+        <result column="account_id" property="accountId"/>
+        <result column="employee_id" property="employeeId"/>
+        <result column="transaction_type_id" property="transactionTypeId"/>
+    </resultMap>
+    <select id="getEntityById" parameterType="int" resultMap="transactionResultMap">
+        SELECT * FROM transactions
+        WHERE transaction_id = #{transactionId};
+    </select>
+    <insert id="createEntity" keyProperty="transaction_id">
+        INSERT INTO transactions (transaction_date, transaction_amount, new_balance, account_id, employee_id, transaction_type_id)
+        VALUES (#{transactionDate}, #{transactionAmount}, #{newBalance}, #{accountId}, #{employeeId}, #{transactionTypeId});
+    </insert>
+    <select id="getAllEntities" resultMap="transactionResultMap">
+        SELECT * FROM transactions;
+    </select>
+    <select id="getTransactionAmountById" parameterType="double" resultMap="transactionResultMap">
+        SELECT transaction_amount FROM transactions WHERE transaction_id = #{transactionId};
+    </select>
+    <delete id="removeEntity" parameterType="int">
+        DELETE from transactions WHERE transaction_id = #{transactionId};
+    </delete>
+    <update id="updateEntity" parameterType="Transaction">
+        UPDATE transactions SET
+        transaction_date = #{transactionDate},
+        transaction_amount = #{transactionAmount},
+        new_balance = #{newBalance},
+        account_id = #{accountId},
+        employee_id = #{employeeId},
+        transaction_type_id = #{transactionTypeId},
+        WHERE transaction_id = #{transactionId};
+    </update>
+</mapper>

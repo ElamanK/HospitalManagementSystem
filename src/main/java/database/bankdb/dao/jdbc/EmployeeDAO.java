@@ -46,6 +46,7 @@ public class EmployeeDAO implements IEmployeeDAO {
 
     @Override
     public Employee getEntityById(int id) {
+        System.out.println("Employee from JDBC");
         Connection connection = ConnectionPool.getInstance().getConnection();
         Employee employee = null;
         try (PreparedStatement ps = connection.prepareStatement(GET_EMPLOYEE)) {
