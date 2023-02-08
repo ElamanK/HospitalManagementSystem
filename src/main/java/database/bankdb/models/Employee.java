@@ -1,22 +1,19 @@
 package database.bankdb.models;
 
+import database.patterns.builder.EmployeeBuilder;
+
 public class Employee {
 
     private int id;
     private String firstname;
     private String lastname;
 
-    public Employee(){};
+    public Employee(){}
 
-    public Employee(String firstname, String lastname) {
-        this.firstname = firstname;
-        this.lastname = lastname;
-    }
-
-    public Employee(int id, String firstname, String lastname) {
-        this.id=id;
-        this.firstname = firstname;
-        this.lastname = lastname;
+    public Employee(EmployeeBuilder employeeBuilder) {
+        this.id=employeeBuilder.getId();
+        this.firstname = employeeBuilder.getFirstname();
+        this.lastname = employeeBuilder.getLastname();
     }
 
     @Override

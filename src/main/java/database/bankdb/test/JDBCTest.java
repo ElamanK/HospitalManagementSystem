@@ -1,6 +1,7 @@
 package database.bankdb.test;
 import database.bankdb.dao.jdbc.*;
 import database.bankdb.models.*;
+import database.patterns.builder.EmployeeBuilder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -98,8 +99,8 @@ public class JDBCTest {
         customerDAO.updateEntity(customerToUpdate);
 
         EmployeeDAO employeeDAO = new EmployeeDAO();
-        Employee empToCreate = new Employee("Merry","J");
-        Employee empToUpdate = new Employee(1,"Kelly","M");
+        Employee empToCreate = new EmployeeBuilder().setFirstname("NEW").setLastname("Test").build();
+        Employee empToUpdate = new EmployeeBuilder().setId(1).setFirstname("test").setLastname("Test").build();
 
         LOGGER.info("Creating employee");
         employeeDAO.insertEntity(empToCreate);

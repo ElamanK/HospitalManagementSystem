@@ -1,5 +1,7 @@
 package database.bankdb.models;
 
+import database.patterns.builder.CustomerBuilder;
+
 public class Customer {
 
     private int customerId;
@@ -32,6 +34,17 @@ public class Customer {
         this.emailAddress = emailAddress;
         this.phone = phone;
         this.ssn = ssn;
+    }
+
+    public Customer(CustomerBuilder customerBuilder){
+        this.customerId = customerBuilder.getCustomerId();
+        this.accountId = customerBuilder.getAccountId();
+        this.firstname = customerBuilder.getFirstname();
+        this.lastname = customerBuilder.getLastname();
+        this.address = customerBuilder.getAddress();
+        this.emailAddress = customerBuilder.getEmailAddress();
+        this.phone = customerBuilder.getPhone();
+        this.ssn = customerBuilder.getSsn();
     }
 
     @Override

@@ -5,6 +5,7 @@ import database.bankdb.models.AccountType;
 import database.bankdb.models.Customer;
 import database.bankdb.models.Employee;
 import database.bankdb.models.Transaction;
+import database.patterns.builder.EmployeeBuilder;
 import database.patterns.daofactory.DBConnectionType;
 import database.patterns.daofactory.DBFactoryGenerator;
 import org.apache.logging.log4j.LogManager;
@@ -27,7 +28,7 @@ public class JDBCDAOFactoryTest {
         IBaseDAO<Employee> employee = DBFactoryGenerator.getFactory(DBConnectionType.JDBC).getDAO("employee");
         List<Employee> listOfEmployees = employee.getAllEntities();
         listOfEmployees.forEach(e -> LOGGER.info(e));
-        Employee emp = new Employee(111,"employee","employee");
+        Employee emp = new EmployeeBuilder().setId(22).setFirstname("Employee").setLastname("Employee").build();
         LOGGER.info("Creating employee");
         employee.insertEntity(emp);
         LOGGER.info("Getting employee");

@@ -1,5 +1,6 @@
 package database.jaxb;
 import database.bankdb.models.*;
+import database.patterns.builder.EmployeeBuilder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import javax.xml.bind.JAXBContext;
@@ -20,8 +21,8 @@ public class JAXBTest {
 
     public static void main(String[] args) {
 
-        Employee employee1 = new Employee(11, "Ann", "Vert");
-        Employee employee2 = new Employee(22, "Ben", "Flip");
+        Employee employee1 = new EmployeeBuilder().setId(11).setFirstname("Ann").setLastname("Vert").build();
+        Employee employee2 = new EmployeeBuilder().setId(22).setFirstname("Ben").setLastname("Flip").build();
 
         Customer customer1 = new Customer(11, "Fillip", "Gal", "123 W Morse ave", "fill@example.com",
                 "1231123122", "124534251");

@@ -3,6 +3,7 @@ import database.bankdb.dao.mybatis.*;
 import database.bankdb.models.Customer;
 import database.bankdb.models.Employee;
 import database.bankdb.models.TransactionType;
+import database.patterns.builder.EmployeeBuilder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -37,8 +38,8 @@ public class MyBatisTest {
         LOGGER.info(employeeDAO.getEntityById(1));
         LOGGER.info("Removing employee");
         employeeDAO.removeEntity(10);
-        Employee employeeForInsert = new Employee("aaa","bbb");
-        Employee employeeForUpdate = new Employee(1,"aaa","bbb");
+        Employee employeeForInsert = new EmployeeBuilder().setFirstname("Test").setLastname("Test").build();
+        Employee employeeForUpdate = new EmployeeBuilder().setId(1).setFirstname("aaa").setLastname("bbb").build();
         employeeDAO.insertEntity(employeeForInsert);
         employeeDAO.updateEntity(employeeForUpdate);
 
