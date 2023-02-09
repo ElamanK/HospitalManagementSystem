@@ -1,0 +1,94 @@
+{
+  "transactionsList": [
+    {
+      "transactionId": 1,
+      "transactionDate": 1675101014769,
+      "transactionAmount": 500.0,
+      "newBalance": 1200.0,
+      "accountId": 1,
+      "employeeId": 2,
+      "transactionTypeId": 2
+    },
+    {
+      "transactionId": 1,
+      "transactionDate": 1675101014769,
+      "transactionAmount": 350.0,
+      "newBalance": 1100.0,
+      "accountId": 2,
+      "employeeId": 1,
+      "transactionTypeId": 1
+    }
+  ],
+  "accountTypeList": [
+    {
+      "accountTypeId": 5,
+      "accountTypeDescription": "debit"
+    },
+    {
+      "accountTypeId": 6,
+      "accountTypeDescription": "credit"
+    }
+  ],
+  "accountStatusTypeList": [
+    {
+      "accountStatusTypeId": 0,
+      "accountStatusTypeDescription": "active"
+    },
+    {
+      "accountStatusTypeId": 0,
+      "accountStatusTypeDescription": "inactive"
+    },
+    {
+      "accountStatusTypeId": 0,
+      "accountStatusTypeDescription": "pending"
+    }
+  ],
+  "transactionTypeList": [
+    {
+      "transactionTypeId": 0,
+      "transactionTypeName": "wireless",
+      "transactionTypeDescription": "transactions",
+      "fee": 2.99
+    },
+    {
+      "transactionTypeId": 0,
+      "transactionTypeName": "test",
+      "transactionTypeDescription": "deposit",
+      "fee": 2.99
+    }
+  ],
+  "employeesList": [
+    {
+      "id": 11,
+      "firstname": "Ann",
+      "lastname": "Vert"
+    },
+    {
+      "id": 22,
+      "firstname": "Ben",
+      "lastname": "Flip"
+    }
+  ],
+  "customersList": [
+    {
+      "customer_id": 1,
+      "accountId": 11,
+      "firstname": "Fillip",
+      "lastname": "Gal",
+      "address": "123 W Morse ave",
+      "emailAddress": "fill@example.com",
+      "phone": "1231123122",
+      "ssn": "124534251"
+    },
+    {
+      "customer_id": 2,
+      "accountId": 22,
+      "firstname": "Fiona",
+      "lastname": "Gal",
+      "address": "123 W Main street",
+      "emailAddress": "fiona@example.com",
+      "phone": "636357537",
+      "ssn": "6457547365"
+    }
+  ]
+}

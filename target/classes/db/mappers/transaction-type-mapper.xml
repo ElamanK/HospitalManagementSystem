@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "org/apache/ibatis/builder/xml/mybatis-3-mapper.dtd">
+<mapper namespace="database.bankdb.dao.daointerfaces.ITransactionTypeDAO">
+    <resultMap id="transactionTypeResultMap" type="TransactionType" autoMapping="false">
+        <id column="transaction_type_id" property="transactionTypeId"/>
+        <result column="transaction_type_name" property="transactionTypeName"/>
+        <result column="transaction_type_description" property="transactionTypeDescription"/>
+        <result column="transaction_fee" property="fee"/>
+    </resultMap>
+    <select id="getEntityById" parameterType="int" resultMap="transactionTypeResultMap">
+        SELECT * FROM transaction_type
+        WHERE transaction_type_id = #{transactionTypeId};
+    </select>
+    <insert id="createEntity" keyProperty="transaction_type_id">
+        INSERT INTO transaction_type (transaction_type_name, transaction_type_description,transaction_fee)
+        VALUES (#{transactionTypeName}, #{transactionTypeDescription}, #{fee});
+    </insert>
+    <select id="getAllEntities" resultMap="transactionTypeResultMap">
+        SELECT * FROM transaction_type;
+    </select>
+    <select id="getTransactionFeeAmountById" parameterType="int" resultMap="transactionTypeResultMap">
+        SELECT transaction_fee FROM transaction_type WHERE transaction_type_id = #{transactionTypeId};
+    </select>
+    <delete id="removeEntity" parameterType="int">
+        DELETE from transaction_type WHERE transaction_type_id = #{transactionTypeId};
+    </delete>
+    <update id="updateEntity" parameterType="TransactionType">
+        UPDATE transaction_type SET
+        transaction_type_name = #{transactionTypeName},
+        transaction_type_description = #{transactionTypeDescription},
+        transaction_fee = #{fee},
+        WHERE transaction_type_id = #{transactionTypeId};
+    </update>
+</mapper>
